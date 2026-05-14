@@ -53,7 +53,7 @@ export function ToolsSection() {
         </Reveal>
 
         {/* Desktop: sticky scroll */}
-        <div className="hidden lg:flex gap-20 items-start">
+        <div className="hidden lg:flex gap-20">
           {/* Left: scrollable text items */}
           <div className="w-[360px] shrink-0">
             {TOOLS.map((tool, i) => (
@@ -93,7 +93,7 @@ export function ToolsSection() {
                 key={activeIndex}
                 className="rounded-2xl bg-surface-primary border border-border-primary overflow-hidden h-[460px] relative animate-tool-slide-up"
               >
-                <div className="absolute inset-0">
+                <div className="absolute inset-0 flex flex-col justify-center">
                   <ToolVisual tool={TOOLS[activeIndex]} />
                 </div>
               </div>
