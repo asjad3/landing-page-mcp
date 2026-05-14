@@ -31,10 +31,10 @@ export function ToolsSection() {
             key={tool.fn}
             className="border-t border-border-primary py-14 lg:py-16 relative overflow-hidden"
           >
-            {/* Large background number */}
+            {/* Large background number — sits behind the heading/text area */}
             <span
               aria-hidden="true"
-              className="absolute right-0 bottom-0 font-display font-semibold leading-none text-white select-none pointer-events-none"
+              className="absolute top-6 right-0 font-display font-semibold leading-none text-white select-none pointer-events-none"
               style={{ fontSize: "clamp(120px, 16vw, 220px)", opacity: 0.05 }}
             >
               {String(i + 1).padStart(2, "0")}
