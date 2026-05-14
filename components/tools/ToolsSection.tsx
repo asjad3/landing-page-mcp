@@ -44,8 +44,10 @@ export function ToolsSection() {
 
               {/* Left: text */}
               <div className="lg:w-[320px] shrink-0 flex flex-col justify-center">
-                <div className="font-mono text-[13px] text-content-secondary leading-[1.7] break-all mb-6">
-                  {tool.fn}
+                <div className="mb-5">
+                  <span className="inline-block font-sans text-[12px] font-medium text-content-secondary border border-border-tertiary rounded-full px-3 py-1">
+                    {tool.tag}
+                  </span>
                 </div>
 
                 <h3

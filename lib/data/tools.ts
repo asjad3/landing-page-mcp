@@ -18,6 +18,7 @@ export type ToolSpan = "hero" | "wide" | "half";
 
 interface ToolBase {
   fn: string;
+  tag: string;
   name: string;
   desc: string;
   span: ToolSpan;
@@ -106,6 +107,7 @@ export const TOOLS: Tool[] = [
     kind: "image-carousel",
     span: "hero",
     fn: "imagine.text_to_image()",
+    tag: "Text to Image",
     name: "Every marketing asset",
     desc: "Turn any product into a campaign in seconds. Posters, ads, lifestyle shots, social media posts — whatever the channel needs, generated from a single prompt.",
     initialTiles: T2I_INITIAL,
@@ -114,6 +116,7 @@ export const TOOLS: Tool[] = [
     kind: "video-timecode",
     span: "half",
     fn: "imagine.text_to_video()",
+    tag: "Text to Video",
     name: "One prompt replaces your agency",
     desc: "UGC, TV spots, product videos — generated from a brief. Seedance 2.0, up to 10 seconds, any format.",
     src: `${SEEDANCE_VIDEOS}/29s.mp4`,
@@ -124,6 +127,7 @@ export const TOOLS: Tool[] = [
     kind: "bg-remove",
     span: "half",
     fn: "imagine.remove_bg()",
+    tag: "Background Removal",
     name: "Clean product photos, automatically",
     desc: "Pixel-perfect background removal on any image. Hair, edges, fine detail — all intact. Ready for any surface.",
     src: `${GPT2}/img07_darkest.webp`,
@@ -132,6 +136,7 @@ export const TOOLS: Tool[] = [
     kind: "upscale-pair",
     span: "wide",
     fn: "imagine.upscale()",
+    tag: "Image Upscale",
     name: "Make any image print-ready",
     desc: "Up to 4× without the AI smear. Detail-aware diffusion that keeps edges, skin, and text sharp at any size.",
     src: `${GPT2}/img04_justice.webp`,
@@ -142,6 +147,7 @@ export const TOOLS: Tool[] = [
     kind: "music",
     span: "half",
     fn: "imagine.music()",
+    tag: "Music Generation",
     name: "Score your content without a studio",
     desc: "Set the mood, tempo, and instruments. Get a production-ready track in seconds — no composer, no license fees.",
     src: `${MUSIC}/videos/1.mp4`,
@@ -153,6 +159,7 @@ export const TOOLS: Tool[] = [
     kind: "script",
     span: "half",
     fn: "imagine.script()",
+    tag: "Script Generation",
     name: "Brief in, production script out",
     desc: "Screenplay scenes and ad copy from a single prompt. Structured, formatted, and ready for production.",
     items: [
@@ -166,6 +173,7 @@ export const TOOLS: Tool[] = [
     kind: "listing",
     span: "half",
     fn: "imagine.list()",
+    tag: "List Generations",
     name: "Everything you've made, in one place",
     desc: "Browse and retrieve any generation by type, date, or prompt. Images, videos, music — nothing gets lost.",
     items: [
@@ -193,6 +201,7 @@ export const TOOLS: Tool[] = [
     kind: "balance",
     span: "half",
     fn: "imagine.balance()",
+    tag: "Balance Inquiry",
     name: "Know exactly what you have left",
     desc: "Check credits, usage, and renewal date at any time. No surprises mid-generation.",
   },
