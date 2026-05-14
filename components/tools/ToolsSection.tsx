@@ -34,8 +34,8 @@ export function ToolsSection() {
             {/* Large background number */}
             <span
               aria-hidden="true"
-              className="absolute -top-3 left-0 font-display font-semibold leading-none text-white select-none pointer-events-none"
-              style={{ fontSize: "clamp(100px, 13vw, 180px)", opacity: 0.045 }}
+              className="absolute right-0 bottom-0 font-display font-semibold leading-none text-white select-none pointer-events-none"
+              style={{ fontSize: "clamp(120px, 16vw, 220px)", opacity: 0.05 }}
             >
               {String(i + 1).padStart(2, "0")}
             </span>
@@ -44,7 +44,7 @@ export function ToolsSection() {
 
               {/* Left: label column — desktop only */}
               <div className="hidden lg:flex flex-col w-[160px] shrink-0 pt-[3px]">
-                <span className="font-mono text-[11px] text-content-tertiary leading-[1.7] break-all">
+                <span className="font-mono text-[13px] text-content-secondary leading-[1.7] break-all">
                   {tool.fn}
                 </span>
               </div>
