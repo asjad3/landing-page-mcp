@@ -40,19 +40,11 @@ export function ToolsSection() {
               {String(i + 1).padStart(2, "0")}
             </span>
 
-            <div className="flex gap-12 lg:gap-20 relative">
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 relative">
 
-              {/* Left: label column — desktop only */}
-              <div className="hidden lg:flex flex-col w-[160px] shrink-0 pt-[3px]">
-                <span className="font-mono text-[13px] text-content-secondary leading-[1.7] break-all">
-                  {tool.fn}
-                </span>
-              </div>
-
-              {/* Right: content */}
-              <div className="flex-1 min-w-0">
-                {/* fn — mobile only */}
-                <div className="font-mono text-[11px] text-content-tertiary mb-3 lg:hidden">
+              {/* Left: text */}
+              <div className="lg:w-[320px] shrink-0 flex flex-col justify-center">
+                <div className="font-mono text-[13px] text-content-secondary leading-[1.7] break-all mb-6">
                   {tool.fn}
                 </div>
 
@@ -63,10 +55,13 @@ export function ToolsSection() {
                   {tool.name}
                 </h3>
 
-                <p className="font-sans text-[15px] leading-[1.7] text-content-secondary m-0 mb-8 max-w-[56ch]">
+                <p className="font-sans text-[15px] leading-[1.7] text-content-secondary m-0">
                   {tool.desc}
                 </p>
+              </div>
 
+              {/* Right: visualization */}
+              <div className="flex-1 min-w-0">
                 <div className="rounded-2xl bg-surface-primary border border-border-primary overflow-hidden h-[520px] relative">
                   <div className="absolute inset-0 flex flex-col justify-center">
                     <ToolVisual tool={tool} />
