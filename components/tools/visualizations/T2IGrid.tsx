@@ -4,22 +4,14 @@ interface Props {
   initial: string[];
 }
 
-export function T2IGrid({ initial }: Props) {
+export function T2IGrid({}: Props) {
   return (
-    <div className="grid grid-cols-3 lg:grid-cols-6 gap-2 w-full">
-      {initial.map((src, i) => (
-        <div
-          key={i}
-          className="aspect-square rounded-md relative overflow-hidden bg-surface-primary"
-        >
-          <img
-            src={src}
-            alt=""
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </div>
-      ))}
+    <div className="w-full h-full relative overflow-hidden">
+      <img
+        src="/text-to-image.jpg"
+        alt="Text to image preview"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
     </div>
   );
 }
