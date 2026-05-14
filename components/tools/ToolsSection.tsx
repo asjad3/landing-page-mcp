@@ -11,19 +11,25 @@ export function ToolsSection() {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const i = itemRefs.current.indexOf(entry.target as HTMLDivElement);
-            if (i !== -1) setActiveIndex(i);
-          }
-        });
-      },
-      { rootMargin: "-35% 0px -35% 0px" }
-    );
-    itemRefs.current.forEach((el) => el && obs.observe(el));
-    return () => obs.disconnect();
+    const onScroll = () => {
+      const mid = window.innerHeight / 2;
+      let closest = 0;
+      let minDist = Infinity;
+      itemRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const dist = Math.abs(rect.top + rect.height / 2 - mid);
+        if (dist < minDist) {
+          minDist = dist;
+          closest = i;
+        }
+      });
+      setActiveIndex(closest);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
