@@ -45,7 +45,7 @@ export function ClientIcon({ id }: { id: ClientId }) {
     case "zed":
       return <img src="/agents/zed.svg" alt="" aria-hidden="true" className={iconClass} style={{ filter: "brightness(0) invert(1)" }} />;
     case "codex-cli":
-      return <img src="/agents/openai.svg" alt="" aria-hidden="true" className={iconClass} style={{ filter: "brightness(0) invert(1)" }} />;
+      return null;
     default:
       return null;
   }
