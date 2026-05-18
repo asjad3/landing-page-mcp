@@ -212,3 +212,15 @@
     transform: translateY(0);
   }
 }
+
+@keyframes blob-drift-1 {
+  0%, 100% { transform: translate(-50%, 0) rotate(30deg) scale(1); }
+  33%       { transform: translate(-50%, -40px) rotate(38deg) scale(1.05); }
+  66%       { transform: translate(-50%, 20px) rotate(24deg) scale(0.97); }
+}
+
+@keyframes blob-drift-2 {
+  0%, 100% { transform: translate(-50%, 0) scale(1); }
+  33%       { transform: translate(-50%, 30px) scale(1.04); }
+  66%       { transform: translate(-50%, -25px) scale(0.96); }
+}
