@@ -18,7 +18,7 @@ export function AgentsRow() {
                     src={a.wordmark}
                     alt={a.name}
                     className="w-auto object-contain"
-                    style={{ height: `${18 * (a.wordmarkScale ?? 1)}px` }}
+                    style={{ height: "20px" }}
                   />
                 ) : (
                   <div className="flex items-center gap-2">
@@ -27,11 +27,11 @@ export function AgentsRow() {
                         src={a.logo}
                         alt=""
                         aria-hidden="true"
-                        className="h-[14px] w-auto object-contain shrink-0"
-                        style={a.invert ? { filter: "brightness(0) invert(1)" } : undefined}
+                        className="w-auto object-contain shrink-0"
+                        style={{ height: "20px", ...(a.invert ? { filter: "brightness(0) invert(1)" } : {}) }}
                       />
                     )}
-                    <span className="font-display text-[14px] font-medium tracking-[-0.01em] text-content-secondary group-hover:text-white transition-colors">
+                    <span className="font-display text-[20px] font-medium tracking-[-0.01em] text-content-secondary group-hover:text-white transition-colors">
                       {a.name}
                     </span>
                   </div>
