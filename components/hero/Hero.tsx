@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { ButtonLink } from "@/components/primitives/Button";
 import { HeroBackdrop } from "./HeroBackdrop";
 import { InstallPanel } from "./InstallPanel";
-import { ClientIcon, type ClientId } from "./ClientIcon";
+import { ClientIcon, ClientWordmark, hasWordmark, type ClientId } from "./ClientIcon";
 
 const CLIENTS: { id: ClientId; name: string }[] = [
   { id: "claude-desktop", name: "Claude Desktop" },
@@ -48,8 +48,14 @@ export function Hero() {
             Creative tools for
             <br />
             <span key={client.id} className="inline-flex items-center gap-[0.45em] animate-word-in whitespace-nowrap">
-              <ClientIcon id={client.id} />
-              {client.name}
+              {hasWordmark(client.id) ? (
+                <ClientWordmark id={client.id} />
+              ) : (
+                <>
+                  <ClientIcon id={client.id} />
+                  {client.name}
+                </>
+              )}
             </span>
             .
           </h1>

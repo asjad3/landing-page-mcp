@@ -9,24 +9,43 @@ export type ClientId =
   | "zed"
   | "codex-cli";
 
-const BASE = "inline-block align-middle relative -top-[0.05em] shrink-0 w-[0.82em] h-[0.82em] object-contain";
+const WORDMARKS: Partial<Record<ClientId, string>> = {
+  cursor:   "/agents/wordmarks/cursor.svg",
+  windsurf: "/agents/wordmarks/windsurf.svg",
+  cline:    "/agents/wordmarks/cline.svg",
+  zed:      "/agents/wordmarks/zed.png",
+};
+
+export function hasWordmark(id: ClientId): boolean {
+  return id in WORDMARKS;
+}
+
+export function ClientWordmark({ id }: { id: ClientId }) {
+  const src = WORDMARKS[id];
+  if (!src) return null;
+  return (
+    <img
+      src={src}
+      alt=""
+      aria-hidden="true"
+      className="inline-block align-middle relative -top-[0.05em] shrink-0 object-contain"
+      style={{ height: "0.72em", width: "auto" }}
+    />
+  );
+}
+
+const iconClass = "inline-block align-middle relative -top-[0.05em] shrink-0 w-[0.72em] h-[0.72em] object-contain";
 
 export function ClientIcon({ id }: { id: ClientId }) {
   switch (id) {
     case "claude-desktop":
     case "claude-code":
-      return <img src="/agents/claude.svg" alt="" aria-hidden="true" className={BASE} />;
-    case "cursor":
-      return <img src="/agents/cursor.svg" alt="" aria-hidden="true" className={`${BASE} rounded-[0.12em]`} />;
-    case "cline":
-      return <img src="/agents/cline.png" alt="" aria-hidden="true" className={`${BASE} rounded-[0.12em]`} />;
-    case "windsurf":
-      return <img src="/agents/windsurf.svg" alt="" aria-hidden="true" className={BASE} />;
+      return <img src="/agents/claude.svg" alt="" aria-hidden="true" className={iconClass} />;
     case "continue":
-      return <img src="/agents/continue.png" alt="" aria-hidden="true" className={`${BASE} rounded-full`} />;
-    case "zed":
-      return <img src="/agents/zed.svg" alt="" aria-hidden="true" className={BASE} style={{ filter: "brightness(0) invert(1)" }} />;
+      return <img src="/agents/continue.png" alt="" aria-hidden="true" className={`${iconClass} rounded-full`} />;
     case "codex-cli":
-      return <img src="/agents/openai.svg" alt="" aria-hidden="true" className={BASE} style={{ filter: "brightness(0) invert(1)" }} />;
+      return <img src="/agents/openai.svg" alt="" aria-hidden="true" className={iconClass} style={{ filter: "brightness(0) invert(1)" }} />;
+    default:
+      return null;
   }
 }
