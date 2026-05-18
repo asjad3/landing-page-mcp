@@ -13,26 +13,26 @@ export function ScriptCard({ items }: Props) {
     >
       <div
         className="absolute inset-0 rounded-xl overflow-hidden flex flex-col"
-        style={{ background: "#0f0f0f" }}
+        style={{ background: "#fafaf8" }}
       >
         {/* Header bar */}
         <div
           className="flex items-center justify-between shrink-0"
           style={{
             padding: "8px 20px",
-            borderBottom: "1px solid rgba(255,255,255,0.05)",
-            background: "#0a0a0a",
+            borderBottom: "1px solid rgba(0,0,0,0.07)",
+            background: "#f2f1ee",
           }}
         >
           <span
             className="font-mono tracking-[1.6px] uppercase"
-            style={{ fontSize: "9px", color: "rgba(255,255,255,0.18)" }}
+            style={{ fontSize: "9px", color: "rgba(0,0,0,0.3)" }}
           >
             screenplay
           </span>
           <span
             className="font-mono"
-            style={{ fontSize: "9px", color: "rgba(255,255,255,0.14)" }}
+            style={{ fontSize: "9px", color: "rgba(0,0,0,0.22)" }}
           >
             p. 1
           </span>
@@ -50,13 +50,13 @@ export function ScriptCard({ items }: Props) {
               <div
                 key={i}
                 style={{
-                  color: "rgba(255,255,255,0.9)",
+                  color: "rgba(0,0,0,0.85)",
                   fontWeight: 700,
                   letterSpacing: "0.04em",
                   textTransform: "uppercase",
                   paddingBottom: 6,
                   marginBottom: 2,
-                  borderBottom: "1px solid rgba(255,255,255,0.06)",
+                  borderBottom: "1px solid rgba(0,0,0,0.08)",
                 }}
               >
                 {item.text}
@@ -67,7 +67,7 @@ export function ScriptCard({ items }: Props) {
               <div
                 key={i}
                 style={{
-                  color: "rgba(255,255,255,0.42)",
+                  color: "rgba(0,0,0,0.45)",
                   maxWidth: "46ch",
                 }}
               >
@@ -79,7 +79,7 @@ export function ScriptCard({ items }: Props) {
               <div
                 key={i}
                 style={{
-                  color: "rgba(255,255,255,0.88)",
+                  color: "rgba(0,0,0,0.82)",
                   fontWeight: 700,
                   letterSpacing: "0.06em",
                   textTransform: "uppercase",
@@ -95,7 +95,7 @@ export function ScriptCard({ items }: Props) {
               <div
                 key={i}
                 style={{
-                  color: "rgba(255,255,255,0.28)",
+                  color: "rgba(0,0,0,0.32)",
                   fontStyle: "italic",
                   paddingLeft: "23%",
                 }}
@@ -108,7 +108,7 @@ export function ScriptCard({ items }: Props) {
               <div
                 key={i}
                 style={{
-                  color: "rgba(255,255,255,0.65)",
+                  color: "rgba(0,0,0,0.62)",
                   paddingLeft: "16%",
                   maxWidth: "76%",
                 }}
@@ -126,7 +126,7 @@ export function ScriptCard({ items }: Props) {
           className="absolute bottom-0 left-0 right-0 pointer-events-none"
           style={{
             height: 56,
-            background: "linear-gradient(to bottom, transparent, #0f0f0f)",
+            background: "linear-gradient(to bottom, transparent, #fafaf8)",
           }}
         />
       </div>
