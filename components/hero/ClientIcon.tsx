@@ -11,7 +11,7 @@ export type ClientId =
 
 const WORDMARKS: Partial<Record<ClientId, { src: string; scale?: number }>> = {
   cursor:   { src: "/agents/wordmarks/cursor.svg" },
-  windsurf: { src: "/agents/wordmarks/windsurf.svg" },
+  windsurf: { src: "/agents/wordmarks/windsurf.svg", scale: 0.72 },
   cline:    { src: "/agents/wordmarks/cline.svg" },
 };
 
