@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Hls from "hls.js";
 
 const SRC = "https://customer-cbeadsgr09pnsezs.cloudflarestream.com/12a9780eeb1ea015801a5f55cf2e9d3d/manifest/video.m3u8";
 
@@ -14,12 +13,22 @@ export function HeroBackdrop() {
 
     if (video.canPlayType("application/vnd.apple.mpegurl")) {
       video.src = SRC;
-    } else if (Hls.isSupported()) {
-      const hls = new Hls({ autoStartLoad: true });
+      video.play().catch(() => {});
+      return;
+    }
+
+    let hls: import("hls.js").default | null = null;
+    import("hls.js").then(({ default: Hls }) => {
+      if (!Hls.isSupported()) return;
+      hls = new Hls();
       hls.loadSource(SRC);
       hls.attachMedia(video);
-      return () => hls.destroy();
-    }
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        video.play().catch(() => {});
+      });
+    });
+
+    return () => hls?.destroy();
   }, []);
 
   return (
@@ -33,7 +42,8 @@ export function HeroBackdrop() {
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-40"
+        crossOrigin="anonymous"
+        className="absolute inset-0 w-full h-full object-cover opacity-50"
       />
       <div
         className="absolute inset-0"
