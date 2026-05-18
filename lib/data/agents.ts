@@ -2,11 +2,12 @@ export interface Agent {
   name: string;
   logo: string;
   invert?: boolean;
+  colored?: boolean;
 }
 
 export const AGENTS: Agent[] = [
-  { name: "Claude Desktop", logo: "/agents/anthropic.svg" },
-  { name: "Claude Code",    logo: "/agents/anthropic.svg" },
+  { name: "Claude Desktop", logo: "/agents/claude.svg", colored: true },
+  { name: "Claude Code",    logo: "/agents/claude.svg", colored: true },
   { name: "Cursor",         logo: "/agents/cursor.svg" },
   { name: "Windsurf",       logo: "/agents/windsurf.svg" },
   { name: "Cline",          logo: "/agents/cline.png" },

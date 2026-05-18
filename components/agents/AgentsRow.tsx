@@ -16,7 +16,7 @@ export function AgentsRow() {
                 <img
                   src={a.logo}
                   alt={a.name}
-                  className="h-5 w-auto object-contain shrink-0 opacity-60 group-hover:opacity-100 transition-opacity"
+                  className={`h-5 w-auto object-contain shrink-0 transition-opacity ${a.colored ? "opacity-80 group-hover:opacity-100" : "opacity-60 group-hover:opacity-100"}`}
                   style={a.invert ? { filter: "brightness(0) invert(1)" } : undefined}
                 />
                 <span className="font-display text-[18px] sm:text-[20px] font-medium tracking-[-0.01em] text-content-secondary group-hover:text-white transition-colors">
