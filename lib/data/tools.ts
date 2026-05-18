@@ -58,7 +58,7 @@ export interface MusicTool extends ToolBase {
 }
 
 export interface ScriptItem {
-  type: "scene" | "action" | "char" | "line";
+  type: "scene" | "action" | "char" | "paren" | "line" | "gap";
   text: string;
 }
 
@@ -163,10 +163,30 @@ export const TOOLS: Tool[] = [
     name: "Brief in, production script out",
     desc: "Screenplay scenes and ad copy from a single prompt. Structured, formatted, and ready for production.",
     items: [
-      { type: "scene", text: "INT. NEON DINER. NIGHT." },
-      { type: "action", text: "Rain drums the window. Static hums." },
-      { type: "char", text: "MAYA" },
-      { type: "line", text: '"You knew this was coming."' },
+      { type: "scene",  text: "INT. NEON DINER — NIGHT" },
+      { type: "gap",    text: "" },
+      { type: "action", text: "Rain drums the window. A ceiling fan clicks overhead. MAYA CROSS, 30s, sharp eyes behind tired ones, sits across from DETECTIVE COLE." },
+      { type: "gap",    text: "" },
+      { type: "char",   text: "COLE" },
+      { type: "line",   text: "You knew this was coming." },
+      { type: "gap",    text: "" },
+      { type: "char",   text: "MAYA" },
+      { type: "paren",  text: "(exhales slowly)" },
+      { type: "line",   text: "I knew someone like you was coming." },
+      { type: "gap",    text: "" },
+      { type: "action", text: "Cole leans forward. A folded photograph slides across the table." },
+      { type: "gap",    text: "" },
+      { type: "char",   text: "COLE" },
+      { type: "line",   text: "Recognize him?" },
+      { type: "gap",    text: "" },
+      { type: "action", text: "Maya glances down. Something shifts behind her eyes — quick, controlled, gone." },
+      { type: "gap",    text: "" },
+      { type: "char",   text: "MAYA" },
+      { type: "line",   text: "Never seen him." },
+      { type: "gap",    text: "" },
+      { type: "char",   text: "COLE" },
+      { type: "paren",  text: "(leans back)" },
+      { type: "line",   text: "Funny. He's got your number saved under \"home.\"" },
     ],
   },
   {

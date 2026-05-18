@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { DotBackground } from "@/components/primitives/DotBackground";
 import "./globals.css";
 
 const googleSans = localFont({
@@ -59,8 +60,9 @@ export default function RootLayout({
           crossOrigin=""
         />
       </head>
-      <body className="font-sans bg-background text-content-primary">
-        {children}
+      <body className="font-sans text-content-primary">
+        <DotBackground />
+{children}
       </body>
     </html>
   );

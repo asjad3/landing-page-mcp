@@ -98,6 +98,7 @@
     scroll-behavior: smooth;
   }
   body {
+    position: relative;
     background: var(--color-background);
     color: var(--color-content-primary);
     font-family: var(--font-sans);
@@ -135,13 +136,13 @@
     }
   }
 
-  /* Reveal — quick, subtle. No oversold curves. */
+  /* Reveal */
   .reveal {
     opacity: 0;
-    transform: translate3d(0, 8px, 0);
+    transform: translate3d(0, 20px, 0);
     transition:
-      opacity 400ms cubic-bezier(0.2, 0.7, 0.2, 1),
-      transform 400ms cubic-bezier(0.2, 0.7, 0.2, 1);
+      opacity 560ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 560ms cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
   }
   .reveal-visible {
@@ -149,8 +150,22 @@
     transform: translate3d(0, 0, 0);
   }
 
+  /* Team cards — responsive widths */
+  .team-card-item {
+    flex: 0 0 80%;
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+  @media (min-width: 640px) {
+    .team-card-item { flex: 0 0 calc((100% - 24px) / 2.1); }
+  }
+  @media (min-width: 1024px) {
+    .team-card-item { flex: 0 0 calc((100% - 48px) / 3.2); }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .reveal {
+    .reveal,
+    .reveal-visible {
       opacity: 1;
       transform: none;
       transition: none;
@@ -160,12 +175,33 @@
   .animate-tool-slide-up {
     animation: tool-slide-up 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
   }
+
+  .animate-word-in {
+    display: inline-block;
+    animation: word-in 0.22s ease forwards;
+  }
 }
 
 @keyframes tool-slide-up {
   from {
     opacity: 0;
     transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobileMenuIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
   }
   to {
     opacity: 1;

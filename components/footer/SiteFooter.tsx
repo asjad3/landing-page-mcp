@@ -6,7 +6,7 @@ export function SiteFooter() {
   return (
     <footer className="py-16 pb-10 border-t border-border-primary">
       <div className="container-page">
-        <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 mb-10">
           <div>
             <Link
               href="#"

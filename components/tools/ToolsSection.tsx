@@ -31,19 +31,17 @@ export function ToolsSection() {
             key={tool.fn}
             className="border-t border-border-primary py-14 lg:py-16 relative overflow-hidden"
           >
-            {/* Large background number — sits behind the heading/text area */}
-            <span
-              aria-hidden="true"
-              className="absolute top-6 left-0 font-display font-semibold leading-none text-white select-none pointer-events-none"
-              style={{ fontSize: "clamp(120px, 16vw, 220px)", opacity: 0.05 }}
-            >
-              {String(i + 1).padStart(2, "0")}
-            </span>
-
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 relative">
 
               {/* Left: text */}
-              <div className="lg:w-[320px] shrink-0 flex flex-col justify-center">
+              <div className="lg:w-[320px] shrink-0 flex flex-col justify-center relative overflow-hidden">
+                <span
+                  aria-hidden="true"
+                  className="absolute top-0 left-0 font-display font-semibold leading-none text-white select-none pointer-events-none"
+                  style={{ fontSize: "clamp(72px, 9vw, 130px)", opacity: 0.13 }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <div className="mb-5">
                   <span className="inline-block font-sans text-[12px] font-medium text-content-secondary border border-border-tertiary rounded-full px-3 py-1">
                     {tool.tag}
@@ -64,8 +62,8 @@ export function ToolsSection() {
 
               {/* Right: visualization */}
               <div className="flex-1 min-w-0">
-                <div className="rounded-2xl bg-surface-primary border border-border-primary overflow-hidden h-[520px] relative">
-                  <div className="absolute inset-0 flex flex-col justify-center">
+                <div className="rounded-2xl bg-surface-primary border border-border-primary overflow-hidden h-[520px] relative px-6 py-3">
+                  <div className="absolute inset-x-6 inset-y-3 flex flex-col justify-center rounded-xl overflow-hidden">
                     <ToolVisual tool={tool} />
                   </div>
                 </div>

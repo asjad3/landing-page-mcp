@@ -1,12 +1,38 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { ButtonLink } from "@/components/primitives/Button";
 import { HeroBackdrop } from "./HeroBackdrop";
 import { InstallPanel } from "./InstallPanel";
+import { ClientIcon, type ClientId } from "./ClientIcon";
+
+const CLIENTS: { id: ClientId; name: string }[] = [
+  { id: "claude-desktop", name: "Claude Desktop" },
+  { id: "cursor", name: "Cursor" },
+  { id: "cline", name: "Cline" },
+  { id: "windsurf", name: "Windsurf" },
+  { id: "continue", name: "Continue" },
+  { id: "claude-code", name: "Claude Code" },
+  { id: "zed", name: "Zed" },
+  { id: "codex-cli", name: "Codex CLI" },
+];
 
 export function Hero() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((prev) => (prev + 1) % CLIENTS.length);
+    }, 2200);
+    return () => clearInterval(id);
+  }, []);
+
+  const client = CLIENTS[index];
+
   return (
     <section
       id="hero"
-      className="relative pt-32 pb-[88px] isolate overflow-visible"
+      className="relative pt-24 md:pt-32 pb-16 md:pb-[88px] isolate overflow-visible"
     >
       <HeroBackdrop />
       <div className="container-page">
@@ -16,10 +42,16 @@ export function Hero() {
           </div>
 
           <h1
-            className="font-display font-semibold leading-[1.06] tracking-[-1.5px] m-0 mb-[22px] text-white text-balance max-w-[18ch]"
+            className="font-display font-semibold leading-[1.06] tracking-[-1.5px] m-0 mb-[22px] text-white"
             style={{ fontSize: "clamp(42px, 5vw, 64px)" }}
           >
-            Creative tools for any agent.
+            Creative tools for
+            <br />
+            <span key={client.id} className="inline-flex items-center gap-[0.2em] animate-word-in whitespace-nowrap">
+              <ClientIcon id={client.id} />
+              {client.name}
+            </span>
+            .
           </h1>
 
           <p className="font-sans text-[18px] font-normal leading-[1.7] text-content-secondary m-0 mb-8 max-w-[56ch] tracking-[-0.005em]">
@@ -39,6 +71,17 @@ export function Hero() {
 
         <InstallPanel />
       </div>
+
+      {/* Fade dots in smoothly below the hero */}
+      <div
+        aria-hidden="true"
+        className="absolute left-0 right-0 pointer-events-none"
+        style={{
+          bottom: -96,
+          height: 96,
+          background: "linear-gradient(to bottom, var(--color-background), transparent)",
+        }}
+      />
     </section>
   );
 }

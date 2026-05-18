@@ -2,6 +2,8 @@ import { SiteNav } from "@/components/nav/SiteNav";
 import { Hero } from "@/components/hero/Hero";
 import { AgentsRow } from "@/components/agents/AgentsRow";
 import { ToolsSection } from "@/components/tools/ToolsSection";
+import { TeamsSection } from "@/components/teams/TeamsSection";
+import { FaqSection } from "@/components/faq/FaqSection";
 import { CtaBleed } from "@/components/cta/CtaBleed";
 import { SiteFooter } from "@/components/footer/SiteFooter";
 
@@ -34,9 +36,24 @@ export default function Home() {
       />
       <SiteNav />
       <main>
-        <Hero />
-        <AgentsRow />
-        <ToolsSection />
+        {/* Border lines — scoped to this wrapper, stop after TeamsSection */}
+        <div className="relative">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 pointer-events-none mx-auto"
+            style={{
+              maxWidth: "1240px",
+              borderLeft: "1px solid rgba(255,255,255,0.06)",
+              borderRight: "1px solid rgba(255,255,255,0.06)",
+            }}
+          />
+          <Hero />
+          <AgentsRow />
+          <ToolsSection />
+        </div>
+
+        <TeamsSection />
+        <FaqSection />
         <CtaBleed />
       </main>
       <SiteFooter />

@@ -11,7 +11,7 @@ import type { Tool } from "@/lib/data/tools";
 export function ToolVisual({ tool }: { tool: Tool }) {
   switch (tool.kind) {
     case "image-carousel":
-      return <T2IGrid initial={tool.initialTiles} />;
+      return <T2IGrid />;
     case "video-timecode":
       return (
         <T2VPlayer
