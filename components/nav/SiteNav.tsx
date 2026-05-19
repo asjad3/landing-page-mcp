@@ -8,7 +8,6 @@ import { IMAGINE_TOOL_LINKS } from "@/lib/data/nav";
 const NAV_LINKS = [
   { label: "Tools",   href: "#tools" },
   { label: "Install", href: "#install" },
-  { label: "Docs",    href: "#" },
   { label: "Pricing", href: "https://www.imagine.art/subscription" },
 ];
 
