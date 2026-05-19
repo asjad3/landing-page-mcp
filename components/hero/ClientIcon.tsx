@@ -7,7 +7,9 @@ export type ClientId =
   | "continue"
   | "claude-code"
   | "zed"
-  | "codex-cli";
+  | "codex-cli"
+  | "hermes"
+  | "openclaw";
 
 const WORDMARKS: Partial<Record<ClientId, { src: string; scale?: number }>> = {
   cursor:   { src: "/agents/wordmarks/cursor.svg" },

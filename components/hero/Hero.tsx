@@ -15,6 +15,8 @@ const CLIENTS: { id: ClientId; name: string }[] = [
   { id: "claude-code", name: "Claude Code" },
   { id: "zed", name: "Zed" },
   { id: "codex-cli", name: "Codex CLI" },
+  { id: "hermes", name: "Hermes" },
+  { id: "openclaw", name: "OpenClaw" },
 ];
 
 export function Hero() {

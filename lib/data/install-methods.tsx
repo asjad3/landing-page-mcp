@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-export type MethodId = "claude" | "cursor" | "cli";
+export type MethodId = "claude" | "cursor" | "hermes" | "openclaw" | "cli";
 
 export interface InstallStep {
   num: string;
@@ -90,6 +90,79 @@ export const INSTALL_METHODS: Record<MethodId, InstallMethod> = {
       },
     ],
   },
+  hermes: {
+    id: "hermes",
+    label: "Hermes",
+    command: "npx -y @imagine/mcp-server",
+    steps: [
+      {
+        num: "01",
+        title: "Open your client",
+        body: (
+          <>
+            Launch Hermes. Open <strong>Settings, MCP servers, Add server</strong>.
+          </>
+        ),
+      },
+      {
+        num: "02",
+        title: "Add the server",
+        body: (
+          <>
+            Name it <strong>imagine</strong>. Paste this command:
+          </>
+        ),
+      },
+      {
+        num: "03",
+        title: "Connect and create",
+        body: (
+          <>
+            Save and reload. Sign in with your <strong>imagine.art</strong>{" "}
+            account. Ask Hermes to <em>generate an image</em>.
+          </>
+        ),
+      },
+    ],
+  },
+  openclaw: {
+    id: "openclaw",
+    label: "OpenClaw",
+    command: "npx -y @imagine/mcp-server",
+    steps: [
+      {
+        num: "01",
+        title: "Open your client",
+        body: (
+          <>
+            Open OpenClaw. Go to{" "}
+            <strong>Settings, MCP, Add new MCP server</strong>.
+          </>
+        ),
+      },
+      {
+        num: "02",
+        title: "Add the server",
+        body: (
+          <>
+            Add a new server named <strong>imagine</strong> with this
+            configuration:
+          </>
+        ),
+      },
+      {
+        num: "03",
+        title: "Connect and create",
+        body: (
+          <>
+            Save and restart OpenClaw. Sign in with your{" "}
+            <strong>imagine.art</strong> account. Ask the agent to{" "}
+            <em>generate a hero image</em>.
+          </>
+        ),
+      },
+    ],
+  },
   cli: {
     id: "cli",
     label: "CLI",
@@ -124,4 +197,4 @@ export const INSTALL_METHODS: Record<MethodId, InstallMethod> = {
   },
 };
 
-export const METHOD_ORDER: MethodId[] = ["claude", "cursor", "cli"];
+export const METHOD_ORDER: MethodId[] = ["claude", "cursor", "hermes", "openclaw", "cli"];

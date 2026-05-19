@@ -17,4 +17,6 @@ export const AGENTS: Agent[] = [
   { name: "Continue",       logo: "/agents/continue.png" },
   { name: "Zed",            logo: "/agents/zed.svg",      invert: true },
   { name: "Codex CLI",      logo: "",                     iconOnly: false },
+  { name: "Hermes",         logo: "",                     iconOnly: false },
+  { name: "OpenClaw",       logo: "",                     iconOnly: false },
 ];
