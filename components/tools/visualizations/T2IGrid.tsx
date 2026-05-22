@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import { ChatMock } from "./ChatMock";
 
-const IMG_1A = "https://www.figma.com/api/mcp/asset/fa9c0bf2-12dc-4794-ace5-3826cfa3de4f";
-const IMG_1B = "https://www.figma.com/api/mcp/asset/36f194e0-15dc-4339-b43c-2e461da5dfd9";
-const IMG_2A = "https://www.figma.com/api/mcp/asset/46d21c5c-318a-4d34-b247-dbe8d6a2aa0c";
-const IMG_2B = "https://www.figma.com/api/mcp/asset/c069a127-45b9-4ee1-bf01-aa1d9f88be90";
+const CDN = "https://cdn-imagine.vyro.ai/imagine-one/gpt-2-image-assets";
+const IMG_1A = `${CDN}/img01_horizon.webp`;
+const IMG_1B = `${CDN}/img04_justice.webp`;
+const IMG_2A = `${CDN}/img07_darkest.webp`;
+const IMG_2B = `${CDN}/img09_tp7.webp`;
 
 export function T2IGrid() {
   return (

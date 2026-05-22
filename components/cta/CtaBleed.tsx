@@ -52,7 +52,7 @@ export function CtaBleed() {
             <ButtonLink href="#install" variant="brand" size="lg">
               Get Imagine MCP
             </ButtonLink>
-            <ButtonLink href="#" variant="ghost" size="lg">
+            <ButtonLink href="#install" variant="ghost" size="lg">
               Read the docs
             </ButtonLink>
           </div>
