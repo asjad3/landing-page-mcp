@@ -8,6 +8,7 @@ import { IMAGINE_TOOL_LINKS } from "@/lib/data/nav";
 const NAV_LINKS = [
   { label: "Tools",   href: "#tools" },
   { label: "Install", href: "#install" },
+  // { label: "GitHub",  href: "https://github.com/asjad3/landing-page-mcp" },
   { label: "Pricing", href: "https://www.imagine.art/subscription" },
 ];
 
@@ -33,7 +34,7 @@ export function SiteNav() {
     <>
       <header
         className="fixed top-0 left-0 right-0 z-[60]"
-        style={{ padding: scrolled ? "10px 0" : "16px 0", transition: "padding 0.3s ease" }}
+        style={{ padding: scrolled ? "10px 20px" : "16px 0", transition: "padding 0.3s ease" }}
       >
         <div
           className="mx-auto flex items-center justify-between"
@@ -41,16 +42,16 @@ export function SiteNav() {
             maxWidth:       scrolled ? "1240px" : "100%",
             padding:        scrolled ? "8px 12px" : "10px clamp(40px,12vw,220px)",
             borderRadius:   "16px",
-            background:     scrolled ? "rgba(15,15,15,0.88)" : "transparent",
-            border:         scrolled ? "1px solid rgba(255,255,255,0.08)" : "1px solid transparent",
-            backdropFilter: scrolled ? "saturate(180%) blur(72px)" : "none",
+            background:     scrolled ? "rgba(15,15,15,0.70)" : "transparent",
+            border:         scrolled ? "1px solid rgba(255,255,255,0.06)" : "1px solid transparent",
+            backdropFilter: scrolled ? "saturate(180%) blur(24px)" : "none",
             boxShadow:      scrolled ? "0 0 0 1px rgba(0,0,0,0.2), 0 4px 6px rgba(0,0,0,0.1), 0 12px 48px rgba(0,0,0,0.3)" : "none",
             transition:     "max-width 0.55s cubic-bezier(0.4,0,0.2,1), padding 0.55s cubic-bezier(0.4,0,0.2,1), background 0.5s cubic-bezier(0.4,0,0.2,1), border-color 0.5s cubic-bezier(0.4,0,0.2,1), box-shadow 0.5s cubic-bezier(0.4,0,0.2,1)",
           }}
         >
           {/* Logo — kept from existing design */}
           <Link href="https://www.imagine.art/" className="inline-flex items-center gap-[10px] shrink-0 no-underline">
-            <Image src="/imagine-logo.svg" alt="" width={26} height={26} className="w-[26px] h-[26px]" priority />
+            <Image src="/imagine-logo.svg" alt="" width={26} height={26} className="w-[26px] h-[26px] ml-[2px]" priority />
             <span className="font-display text-[18px] font-semibold tracking-[-0.02em] text-white">
               Imagine <span className="text-primary-40 font-semibold">MCP</span>
             </span>
