@@ -34,7 +34,7 @@ function FaqRow({ q, a, delay }: { q: string; a: string; delay: number }) {
         aria-expanded={open}
       >
         <span
-          className="font-sans font-normal leading-snug text-white"
+          className="font-sans font-normal leading-snug text-content-primary"
           style={{ fontSize: "clamp(17px, 1.8vw, 22px)" }}
         >
           {q}
@@ -68,7 +68,7 @@ export function FaqSection() {
 
         <Reveal className="pt-24 pb-16 text-center">
           <h2
-            className="font-display font-semibold leading-[1.05] tracking-[-0.5px] m-0 text-white"
+            className="font-display font-semibold capitalize leading-[1.05] tracking-[-0.5px] m-0 text-content-primary"
             style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
           >
             Frequently asked questions

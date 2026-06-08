@@ -15,7 +15,7 @@ export function CtaBleed() {
         playsInline
         preload="metadata"
         poster={CTA_VIDEO.poster}
-        className="absolute inset-0 w-full h-full object-cover -z-[2] opacity-[0.30]"
+        className="absolute inset-0 w-full h-full object-cover -z-[2] opacity-[0.18]"
       >
         <source src={CTA_VIDEO.src} type="video/mp4" />
       </video>
@@ -23,7 +23,7 @@ export function CtaBleed() {
         className="absolute inset-0 -z-[1]"
         style={{
           background:
-            "linear-gradient(180deg, var(--color-background) 0%, rgb(15 15 15 / 0.65) 25%, rgb(15 15 15 / 0.65) 75%, var(--color-background) 100%)",
+            "linear-gradient(180deg, #ffffff 0%, rgb(255 255 255 / 0.72) 25%, rgb(255 255 255 / 0.72) 75%, #ffffff 100%)",
         }}
       />
       <div className="container-page">
@@ -34,7 +34,7 @@ export function CtaBleed() {
         </Reveal>
         <Reveal delay={80}>
           <h2
-            className="font-display font-semibold leading-[1.2] tracking-[-0.2px] text-white text-balance my-[18px] max-w-[14ch]"
+            className="font-display font-semibold capitalize leading-[1.2] tracking-[-0.2px] text-content-primary text-balance my-[18px] max-w-[14ch]"
             style={{ fontSize: "clamp(32px, 4vw, 56px)" }}
           >
             Plug in. Generate.

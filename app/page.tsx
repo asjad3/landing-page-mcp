@@ -1,6 +1,7 @@
 import { SiteNav } from "@/components/nav/SiteNav";
 import { Hero } from "@/components/hero/Hero";
 import { AgentsRow } from "@/components/agents/AgentsRow";
+import { TrustedBy } from "@/components/trusted/TrustedBy";
 import { ToolsSection } from "@/components/tools/ToolsSection";
 import { TeamsSection } from "@/components/teams/TeamsSection";
 import { FaqSection } from "@/components/faq/FaqSection";
@@ -43,11 +44,12 @@ export default function Home() {
             className="absolute inset-0 pointer-events-none mx-auto"
             style={{
               maxWidth: "1240px",
-              borderLeft: "1px solid rgba(255,255,255,0.06)",
-              borderRight: "1px solid rgba(255,255,255,0.06)",
+              borderLeft: "1px solid rgba(0,0,0,0.06)",
+              borderRight: "1px solid rgba(0,0,0,0.06)",
             }}
           />
           <Hero />
+          <TrustedBy />
           <AgentsRow />
           <ToolsSection />
         </div>

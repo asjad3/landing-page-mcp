@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* ---------- Primitives — sourced from imagine.art production palette ---------- */
-  --color-primary-10: rgb(246 242 255);
-  --color-primary-20: rgb(232 218 255);
-  --color-primary-30: rgb(212 187 255);
-  --color-primary-40: rgb(190 149 255);
-  --color-primary-50: rgb(165 110 255);
-  --color-primary-60: rgb(138 63 252);   /* #8A3FFC, brand */
-  --color-primary-70: rgb(105 41 196);
-  --color-primary-80: rgb(73 29 139);
-  --color-primary-90: rgb(49 19 94);
-  --color-primary-100: rgb(28 15 48);
+  /* ---------- Primitives — orange accent ramp (#FB5607 base) ---------- */
+  --color-primary-10: rgb(255 243 235);
+  --color-primary-20: rgb(255 224 204);
+  --color-primary-30: rgb(255 178 128);
+  --color-primary-40: rgb(255 140 66);
+  --color-primary-50: rgb(251 107 30);
+  --color-primary-60: rgb(251 86 7);     /* #FB5607, brand */
+  --color-primary-70: rgb(214 67 0);
+  --color-primary-80: rgb(166 52 0);
+  --color-primary-90: rgb(110 35 0);
+  --color-primary-100: rgb(48 18 4);
 
   --color-neutral-10: rgb(247 247 247);
   --color-neutral-20: rgb(237 237 237);
@@ -23,29 +23,33 @@
   --color-neutral-80: rgb(41 41 41);
   --color-neutral-90: rgb(33 33 33);
   --color-neutral-100: rgb(23 23 23);     /* #171717 */
-  --color-neutral-110: rgb(15 15 15);     /* #0F0F0F, page surface */
+  --color-neutral-110: rgb(15 15 15);     /* #0F0F0F */
 
   /* Imagine.art's secondary accent (orange) */
   --color-accent-orange: rgb(251 86 7);   /* #FB5607 */
 
-  /* ---------- Semantic tokens (dark-only) ---------- */
-  --color-background: rgb(15 15 15);
-  --color-content-primary: rgb(255 255 255);
-  --color-content-secondary: rgb(189 189 189);
-  --color-content-tertiary: rgb(255 255 255 / 0.5);
-  --color-content-brand: rgb(212 187 255);
+  /* Brand gradient endpoints — sampled from the imaginemcp logo */
+  --color-brand-from: #ff6647;
+  --color-brand-to: #f13e07;
 
-  --color-surface-primary: rgb(23 23 23);
-  --color-surface-secondary: rgb(33 33 33);
-  --color-surface-tertiary: rgb(41 41 41);
+  /* ---------- Semantic tokens (light theme) ---------- */
+  --color-background: rgb(255 255 255);
+  --color-content-primary: rgb(23 23 23);
+  --color-content-secondary: rgb(87 87 87);
+  --color-content-tertiary: rgb(0 0 0 / 0.5);
+  --color-content-brand: rgb(214 67 0);
 
-  --color-fill-brand: rgb(138 63 252);
-  --color-fill-brand-hover: rgb(165 110 255);
+  --color-surface-primary: rgb(250 250 250);
+  --color-surface-secondary: rgb(240 240 240);
+  --color-surface-tertiary: rgb(230 230 230);
 
-  --color-border-primary: rgb(33 33 33);
-  --color-border-secondary: rgb(41 41 41);
-  --color-border-tertiary: rgb(61 61 61);
-  --color-border-brand: rgb(138 63 252);
+  --color-fill-brand: rgb(251 86 7);
+  --color-fill-brand-hover: rgb(214 67 0);
+
+  --color-border-primary: rgb(0 0 0 / 0.08);
+  --color-border-secondary: rgb(0 0 0 / 0.12);
+  --color-border-tertiary: rgb(0 0 0 / 0.2);
+  --color-border-brand: rgb(251 86 7);
 
   /* ---------- Fonts (variable wired via next/font in layout.tsx) ---------- */
   --font-sans: var(--font-google-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -123,12 +127,23 @@
     text-decoration: none;
   }
   ::selection {
-    background: rgb(138 63 252 / 0.45);
-    color: #fff;
+    background: rgb(251 86 7 / 0.25);
+    color: rgb(23 23 23);
   }
 }
 
 @layer utilities {
+  /* Reusable brand gradient — single source of truth for the orange lockup look */
+  .bg-brand-gradient {
+    background-image: linear-gradient(135deg, var(--color-brand-from) 0%, var(--color-brand-to) 100%);
+  }
+  .text-brand-gradient {
+    background-image: linear-gradient(135deg, var(--color-brand-from) 0%, var(--color-brand-to) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
   .container-page {
     max-width: 1240px;
     margin: 0 auto;
@@ -189,6 +204,18 @@
     display: inline-block;
     animation: word-in 0.22s ease forwards;
   }
+
+  .animate-marquee {
+    animation: marquee 38s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee { animation: none; }
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 @keyframes tool-slide-up {
@@ -226,4 +253,19 @@
 @keyframes blob-drift-2 {
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(25px); }
+}
+
+@keyframes hero-glow-drift {
+  0%   { transform: translate3d(-16%, -2%, 0) scale(1); }
+  50%  { transform: translate3d(16%, 8%, 0) scale(1.2); }
+  100% { transform: translate3d(-16%, -2%, 0) scale(1); }
+}
+
+.hero-glow {
+  animation: hero-glow-drift 11s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow { animation: none; }
 }

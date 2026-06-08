@@ -24,8 +24,8 @@ export function CopyButton({ value }: CopyButtonProps) {
         "inline-flex items-center gap-[6px] h-7 px-[10px] rounded-md cursor-pointer flex-shrink-0 " +
         "font-sans text-[11px] font-medium border transition-colors " +
         (copied
-          ? "text-[#6FDC8C] border-[rgb(111_220_140_/_0.6)] bg-white/[0.06]"
-          : "text-content-secondary border-border-primary bg-white/[0.06] hover:bg-white/[0.12] hover:text-white")
+          ? "text-[#16833E] border-[rgb(22_131_62_/_0.4)] bg-black/[0.04]"
+          : "text-content-secondary border-border-secondary bg-black/[0.04] hover:bg-black/[0.08] hover:text-content-primary")
       }
     >
       <svg

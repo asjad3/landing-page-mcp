@@ -21,7 +21,7 @@ export function ToolCard({ tool, index }: Props) {
         <div className="font-mono text-[11px] font-medium text-content-tertiary tracking-[-0.005em] mb-[6px]">
           {tool.fn}
         </div>
-        <h3 className="font-display text-[15px] font-semibold leading-[1.2] tracking-[-0.018em] text-white m-0 mb-1">
+        <h3 className="font-display text-[15px] font-semibold capitalize leading-[1.2] tracking-[-0.018em] text-white m-0 mb-1">
           {tool.name}
         </h3>
         <p className="font-sans text-[13px] leading-[1.55] text-content-secondary m-0">

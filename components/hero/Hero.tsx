@@ -1,62 +1,47 @@
 "use client";
 
-import { useState, useEffect } from "react";
+/* eslint-disable @next/next/no-img-element */
 import { ButtonLink } from "@/components/primitives/Button";
 import { HeroBackdrop } from "./HeroBackdrop";
 import { InstallPanel } from "./InstallPanel";
-import { ClientIcon, ClientWordmark, hasWordmark, type ClientId } from "./ClientIcon";
+import { RotatingClient } from "./RotatingClient";
 
-const CLIENTS: { id: ClientId; name: string }[] = [
-  { id: "claude-desktop", name: "Claude" },
-  { id: "cursor", name: "Cursor" },
-  { id: "cline", name: "Cline" },
-  { id: "hermes", name: "Hermes" },
-  { id: "openclaw", name: "OpenClaw" },
+const CLIENTS = [
+  { name: "Claude",   icon: "/ai-logos/icons/claude.svg" },
+  { name: "Cursor",   icon: "/ai-logos/icons/cursor.svg" },
+  { name: "Cline",    icon: "/ai-logos/icons/cline.svg" },
+  { name: "Hermes",   icon: "/ai-logos/icons/hermes.svg" },
+  { name: "OpenClaw", icon: "/ai-logos/icons/openclaw.svg" },
 ];
 
 export function Hero() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setIndex((prev) => (prev + 1) % CLIENTS.length);
-    }, 2200);
-    return () => clearInterval(id);
-  }, []);
-
-  const client = CLIENTS[index];
-
   return (
     <section
       id="hero"
-      className="relative pt-24 md:pt-32 pb-16 md:pb-[88px] isolate overflow-visible"
+      className="relative min-h-screen flex flex-col pt-36 md:pt-44 pb-20 isolate overflow-visible"
     >
       <HeroBackdrop />
       <div className="container-page">
         <div className="flex flex-col items-center text-center">
-          <div className="font-mono text-[10.5px] font-semibold tracking-[1.8px] uppercase text-content-tertiary mb-[22px]">
-            v1.0
-          </div>
-
+          <img
+            src="/imagine-mcp-logo.svg"
+            alt="ImagineMCP"
+            width={161}
+            height={30}
+            className="mb-6"
+          />
           <h1
-            className="font-display font-semibold leading-[1.06] tracking-[-1.5px] m-0 mb-[22px] text-white"
-            style={{ fontSize: "clamp(42px, 5vw, 64px)" }}
+            className="font-display font-medium capitalize leading-[1.04] tracking-[-1.5px] m-0 mb-[22px] text-content-primary"
+            style={{ fontSize: "clamp(36px, 4.8vw, 60px)" }}
           >
-            Creative tools for
+            Make a creative powerhouse with
             <br />
-            <span key={client.id} className="inline-flex items-center animate-word-in whitespace-nowrap">
-              {hasWordmark(client.id) ? (
-                <ClientWordmark id={client.id} />
-              ) : (
-                <span className="inline-flex items-center gap-[0.4em]" style={{ fontSize: "0.75em" }}>
-                  <ClientIcon id={client.id} />
-                  {client.name}
-                </span>
-              )}
+            <span className="inline-flex mt-[0.18em]">
+              <RotatingClient items={CLIENTS} />
             </span>
           </h1>
 
-          <p className="font-sans text-[18px] font-normal leading-[1.7] text-content-secondary m-0 mb-8 max-w-[56ch] tracking-[-0.005em]">
+          <p className="font-sans text-[18px] font-normal leading-[1.7] text-[#0F0F0F] m-0 mb-8 max-w-[56ch] tracking-[-0.005em]">
             An MCP server for ImagineArt. Six creative endpoints for Claude,
             Cursor, and any client that speaks the Model Context Protocol.
           </p>

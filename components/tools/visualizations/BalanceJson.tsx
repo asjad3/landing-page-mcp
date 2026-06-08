@@ -27,7 +27,7 @@ export function BalanceJson() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(-44deg, rgba(80,110,210,0.15) 0%, rgba(110,60,180,0.18) 100%), rgb(23 23 23)",
+              "linear-gradient(-44deg, rgba(251,86,7,0.14) 0%, rgba(251,86,7,0.05) 100%), rgb(23 23 23)",
           }}
         />
         <div className="relative flex flex-col gap-5 p-6">

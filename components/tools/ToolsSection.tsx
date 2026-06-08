@@ -13,11 +13,11 @@ export function ToolsSection() {
             Toolset
           </div>
           <h2
-            className="font-display font-semibold leading-[1.05] tracking-[-0.5px] m-0 mb-4 text-white text-balance"
+            className="font-display font-semibold capitalize leading-[1.05] tracking-[-0.5px] m-0 mb-4 text-content-primary text-balance"
             style={{ fontSize: "clamp(32px, 4vw, 52px)" }}
           >
             Six tools.{" "}
-            <span className="text-white/35">Infinite creative output.</span>
+            <span className="text-black/35">Infinite creative output.</span>
           </h2>
           <p className="font-sans text-[18px] leading-[1.7] text-content-secondary m-0 max-w-[60ch] tracking-[-0.005em]">
             Six creative capabilities, callable from Claude, Cursor, or any
@@ -37,8 +37,8 @@ export function ToolsSection() {
               <div className="lg:w-[320px] shrink-0 flex flex-col justify-center relative overflow-hidden">
                 <span
                   aria-hidden="true"
-                  className="absolute top-0 left-0 font-display font-semibold leading-none text-white select-none pointer-events-none"
-                  style={{ fontSize: "clamp(72px, 9vw, 130px)", opacity: 0.13 }}
+                  className="absolute top-0 left-0 font-display font-semibold leading-none text-content-primary select-none pointer-events-none"
+                  style={{ fontSize: "clamp(72px, 9vw, 130px)", opacity: 0.12 }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -49,7 +49,7 @@ export function ToolsSection() {
                 </div>
 
                 <h3
-                  className="font-display font-semibold leading-[1.1] tracking-[-0.5px] text-white m-0 mb-3"
+                  className="font-display font-semibold capitalize leading-[1.1] tracking-[-0.5px] text-content-primary m-0 mb-3"
                   style={{ fontSize: "clamp(20px, 2.2vw, 30px)" }}
                 >
                   {tool.name}

@@ -13,7 +13,7 @@ interface CommonProps {
 
 const base =
   "inline-flex items-center justify-center gap-2 rounded-[10px] font-sans font-medium tracking-[-0.005em] " +
-  "transition-colors duration-200 ease-out cursor-pointer border-0 active:translate-y-px";
+  "transition-opacity duration-200 ease-out cursor-pointer border-0 active:translate-y-px";
 
 const sizes: Record<Size, string> = {
   md: "h-10 px-[18px] text-[14px]",
@@ -22,9 +22,9 @@ const sizes: Record<Size, string> = {
 
 const variants: Record<Variant, string> = {
   brand:
-    "bg-primary-60 text-white hover:bg-primary-50",
+    "bg-content-primary text-white transition-colors hover:bg-black",
   ghost:
-    "bg-white/[0.04] text-white border border-border-secondary hover:bg-white/[0.08] hover:border-border-tertiary",
+    "bg-transparent text-content-primary border border-border-secondary transition-colors hover:bg-black/[0.04] hover:border-border-tertiary",
 };
 
 export function buttonClass({

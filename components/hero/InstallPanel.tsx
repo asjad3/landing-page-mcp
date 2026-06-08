@@ -12,8 +12,8 @@ import {
 function StepActionView({ action }: { action: StepAction }) {
   if (action.type === "copy" && action.layout === "block") {
     return (
-      <div className="relative bg-neutral-110 border border-border-secondary rounded-lg hover:border-border-tertiary focus-within:border-primary-50 transition-colors">
-        <pre className="font-mono text-[11.5px] leading-[1.55] text-primary-30 overflow-x-auto p-3 pr-[88px] [&::-webkit-scrollbar]:hidden">
+      <div className="relative bg-surface-secondary border border-border-secondary rounded-lg hover:border-border-tertiary focus-within:border-primary-50 transition-colors">
+        <pre className="font-mono text-[11.5px] leading-[1.55] text-primary-70 overflow-x-auto p-3 pr-[88px] [&::-webkit-scrollbar]:hidden">
           <code className="whitespace-pre">{action.value}</code>
         </pre>
         <div className="absolute top-[6px] right-[6px]">
@@ -25,8 +25,8 @@ function StepActionView({ action }: { action: StepAction }) {
 
   if (action.type === "copy") {
     return (
-      <div className="flex items-center gap-[6px] bg-neutral-110 border border-border-secondary rounded-lg pl-3 pr-[6px] py-[6px] hover:border-border-tertiary focus-within:border-primary-50 transition-colors">
-        <code className="flex-1 min-w-0 font-mono text-[12px] text-primary-30 overflow-x-auto whitespace-nowrap [&::-webkit-scrollbar]:hidden">
+      <div className="flex items-center gap-[6px] bg-surface-secondary border border-border-secondary rounded-lg pl-3 pr-[6px] py-[6px] hover:border-border-tertiary focus-within:border-primary-50 transition-colors">
+        <code className="flex-1 min-w-0 font-mono text-[12px] text-primary-70 overflow-x-auto whitespace-nowrap [&::-webkit-scrollbar]:hidden">
           {action.value}
         </code>
         <CopyButton value={action.value} />
@@ -35,7 +35,7 @@ function StepActionView({ action }: { action: StepAction }) {
   }
 
   return (
-    <div className="bg-neutral-110 border border-border-secondary rounded-lg p-3">
+    <div className="bg-surface-secondary border border-border-secondary rounded-lg p-3">
       <div className="flex items-center gap-2 mb-2">
         <span className="block w-1.5 h-1.5 rounded-full bg-primary-40" aria-hidden="true" />
         <span className="font-mono text-[10.5px] font-medium tracking-[0.16em] uppercase text-content-tertiary">
@@ -56,10 +56,10 @@ export function InstallPanel() {
     method.steps.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3";
 
   return (
-    <div className="mt-14" id="install">
+    <div className="mt-24" id="install">
       <div
         role="tablist"
-        className="inline-flex gap-1 p-1 bg-surface-primary border border-border-primary rounded-[10px] mb-[18px]"
+        className="inline-flex gap-1 p-1 bg-white/45 backdrop-blur-xl border border-white/60 shadow-[0_4px_16px_rgba(0,0,0,0.05)] rounded-[10px] mb-[18px]"
       >
         {METHOD_ORDER.map((id) => {
           const isActive = id === active;
@@ -73,8 +73,8 @@ export function InstallPanel() {
                 "h-[34px] px-[14px] rounded-lg cursor-pointer " +
                 "font-sans text-[13px] font-medium transition-colors duration-[180ms] " +
                 (isActive
-                  ? "bg-surface-secondary text-white"
-                  : "bg-transparent text-content-secondary hover:text-white")
+                  ? "bg-surface-secondary text-content-primary"
+                  : "bg-transparent text-content-secondary hover:text-content-primary")
               }
             >
               {INSTALL_METHODS[id].label}
@@ -85,7 +85,7 @@ export function InstallPanel() {
 
       <div
         className={
-          "grid grid-cols-1 w-full rounded-2xl overflow-hidden bg-surface-primary border border-border-primary " +
+          "grid grid-cols-1 w-full rounded-2xl overflow-hidden bg-white/45 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.08)] " +
           colsClass
         }
       >
@@ -102,10 +102,10 @@ export function InstallPanel() {
             <div className="absolute top-[18px] right-[18px] font-mono font-medium text-[11px] tracking-[0.04em] text-content-tertiary">
               {step.num}
             </div>
-            <h3 className="font-display text-[16px] font-semibold tracking-[-0.01em] text-white m-0 mb-2 pr-9">
+            <h3 className="font-display text-[16px] font-semibold capitalize tracking-[-0.01em] text-content-primary m-0 mb-2 pr-9">
               {step.title}
             </h3>
-            <p className="font-sans text-[14px] font-normal leading-[1.55] text-content-secondary m-0 mb-[14px] [&_strong]:text-white [&_strong]:font-medium [&_em]:not-italic [&_em]:text-primary-30 [&_em]:font-medium [&_code]:font-mono [&_code]:text-[12px] [&_code]:font-medium [&_code]:text-primary-30 [&_code]:bg-neutral-110 [&_code]:px-[6px] [&_code]:py-px [&_code]:rounded [&_code]:border [&_code]:border-border-primary">
+            <p className="font-sans text-[14px] font-normal leading-[1.55] text-content-secondary m-0 mb-[14px] [&_strong]:text-content-primary [&_strong]:font-medium [&_em]:not-italic [&_em]:text-primary-70 [&_em]:font-medium [&_code]:font-mono [&_code]:text-[12px] [&_code]:font-medium [&_code]:text-primary-70 [&_code]:bg-surface-secondary [&_code]:px-[6px] [&_code]:py-px [&_code]:rounded [&_code]:border [&_code]:border-border-primary">
               {step.body}
             </p>
             {step.action && <StepActionView action={step.action} />}

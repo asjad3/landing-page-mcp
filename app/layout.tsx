@@ -52,7 +52,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`dark ${googleSans.variable}`}>
+    <html lang="en" className={googleSans.variable}>
       <head>
         <link
           rel="preconnect"
@@ -65,7 +65,7 @@ export default function RootLayout({
           aria-hidden="true"
           className="fixed inset-0 pointer-events-none z-0"
           style={{
-            backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.05) 1px, transparent 1px)",
             backgroundSize: "32px 32px",
           }}
         />

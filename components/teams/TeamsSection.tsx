@@ -68,7 +68,7 @@ export function TeamsSection() {
         <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
           <div className="max-w-[640px]">
             <h2
-              className="font-display font-semibold leading-[1.05] tracking-[-0.5px] m-0 mb-4 text-white text-balance"
+              className="font-display font-semibold capitalize leading-[1.05] tracking-[-0.5px] m-0 mb-4 text-content-primary text-balance"
               style={{ fontSize: "clamp(32px, 4vw, 52px)" }}
             >
               From concept to content in one conversation.
@@ -83,14 +83,14 @@ export function TeamsSection() {
             <button
               onClick={() => scroll("prev")}
               aria-label="Previous"
-              className="flex items-center justify-center w-9 h-9 rounded-full border border-border-tertiary text-content-secondary hover:border-white hover:text-white transition-colors"
+              className="flex items-center justify-center w-9 h-9 rounded-full border border-border-tertiary text-content-secondary hover:border-primary-60 hover:text-primary-60 transition-colors"
             >
               <ChevronLeft />
             </button>
             <button
               onClick={() => scroll("next")}
               aria-label="Next"
-              className="flex items-center justify-center w-9 h-9 rounded-full border border-border-tertiary text-content-secondary hover:border-white hover:text-white transition-colors"
+              className="flex items-center justify-center w-9 h-9 rounded-full border border-border-tertiary text-content-secondary hover:border-primary-60 hover:text-primary-60 transition-colors"
             >
               <ChevronRight />
             </button>
@@ -132,7 +132,7 @@ export function TeamsSection() {
               {/* Body */}
               <div className="pt-4">
                 <p
-                  className="font-display font-medium text-white leading-snug tracking-[-0.3px] mb-2"
+                  className="font-display font-medium capitalize text-content-primary leading-snug tracking-[-0.3px] mb-2"
                   style={{ fontSize: "clamp(17px, 1.6vw, 22px)" }}
                 >
                   {card.title}
