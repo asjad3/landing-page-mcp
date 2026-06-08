@@ -186,17 +186,26 @@
   .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
   .no-scrollbar::-webkit-scrollbar { display: none; }
 
-  /* Team cards — responsive widths */
+  /* Team cards — consistent widths regardless of the full-bleed track */
   .team-card-item {
-    flex: 0 0 80%;
+    flex: 0 0 clamp(300px, 84vw, 440px);
     min-width: 0;
     scroll-snap-align: start;
   }
-  @media (min-width: 640px) {
-    .team-card-item { flex: 0 0 calc((100% - 24px) / 2.1); }
+
+  /* Full-bleed horizontal scroller: runs edge-to-edge but the first card
+     aligns with the page container gutter (matches .container-page). */
+  .bleed-scroller {
+    padding-left: 20px;
+    padding-right: 20px;
+    scroll-padding-left: 20px;
   }
-  @media (min-width: 1024px) {
-    .team-card-item { flex: 0 0 calc((100% - 48px) / 3.2); }
+  @media (min-width: 769px) {
+    .bleed-scroller {
+      padding-left: max(32px, calc((100vw - 1240px) / 2 + 32px));
+      padding-right: max(32px, calc((100vw - 1240px) / 2 + 32px));
+      scroll-padding-left: max(32px, calc((100vw - 1240px) / 2 + 32px));
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

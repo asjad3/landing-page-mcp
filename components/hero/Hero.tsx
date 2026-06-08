@@ -17,7 +17,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col pt-36 md:pt-44 pb-20 isolate overflow-visible"
+      className="relative flex flex-col pt-36 md:pt-44 pb-20 isolate overflow-visible"
     >
       <HeroBackdrop />
       <div className="container-page">

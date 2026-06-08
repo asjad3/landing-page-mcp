@@ -98,13 +98,14 @@ export function TeamsSection() {
             </button>
           </div>
         </Reveal>
+      </div>
 
-        {/* Card grid */}
-        <div
-          ref={gridRef}
-          className="flex gap-6 overflow-x-auto overflow-y-hidden no-scrollbar"
-          style={{ scrollSnapType: "x mandatory" }}
-        >
+      {/* Card grid — full-bleed so cards run to the viewport edge */}
+      <div
+        ref={gridRef}
+        className="flex gap-6 overflow-x-auto overflow-y-hidden no-scrollbar bleed-scroller"
+        style={{ scrollSnapType: "x mandatory" }}
+      >
           {CARDS.map((card, i) => (
             <Reveal
               key={card.title}
@@ -148,12 +149,12 @@ export function TeamsSection() {
           ))}
         </div>
 
+      <div className="container-page">
         <Reveal className="flex justify-center pt-14">
           <ButtonLink href="#install" variant="muted" size="lg">
             Build Your Workflow
           </ButtonLink>
         </Reveal>
-
       </div>
     </section>
   );

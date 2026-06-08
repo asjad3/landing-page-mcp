@@ -87,7 +87,7 @@ export function RotatingClient({
 
       {/* Morphing pill — animates real width (no scale distortion) */}
       <motion.span
-        className="relative inline-block rounded-[0.32em] bg-white/55 backdrop-blur-sm shadow-[0_2px_12px_rgba(0,0,0,0.06)]"
+        className="relative inline-block rounded-[0.32em] bg-white/25 backdrop-blur-sm border border-white/50 shadow-[0_4px_20px_rgba(0,0,0,0.07),inset_0_1px_0_rgba(255,255,255,0.65)]"
         style={{ height: FACE_H }}
         animate={w != null ? { width: w } : undefined}
         transition={FLIP}

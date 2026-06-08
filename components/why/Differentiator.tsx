@@ -1,5 +1,15 @@
+import type { ReactNode } from "react";
 import { Reveal } from "@/components/primitives/Reveal";
 import { ButtonLink } from "@/components/primitives/Button";
+
+// Flat 2D square (cube) tile holding the icon.
+function IconCube({ children }: { children: ReactNode }) {
+  return (
+    <div className="flex items-center justify-center w-11 h-11 rounded-md bg-primary-10 text-primary-60 mb-5">
+      {children}
+    </div>
+  );
+}
 
 function KeyIcon() {
   return (
@@ -72,11 +82,11 @@ export function Differentiator() {
               <Reveal
                 key={card.title}
                 delay={i * 80}
-                className="rounded-2xl border border-black/[0.07] bg-white/72 backdrop-blur-2xl shadow-[0_2px_16px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.7)] p-7"
+                className="rounded-2xl border border-white/60 bg-white/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.7)] p-7"
               >
-                <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-primary-10 text-primary-60 mb-5">
+                <IconCube>
                   <Icon />
-                </div>
+                </IconCube>
                 <h3 className="font-display text-[20px] font-semibold capitalize tracking-[-0.01em] text-content-primary m-0 mb-2">
                   {card.title}
                 </h3>
