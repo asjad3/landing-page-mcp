@@ -25,8 +25,8 @@ export function Hero() {
           <img
             src="/imagine-mcp-logo.svg"
             alt="ImagineMCP"
-            width={188}
-            height={35}
+            width={263}
+            height={49}
             className="mb-6"
           />
           <h1

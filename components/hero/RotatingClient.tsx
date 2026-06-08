@@ -104,7 +104,7 @@ export function RotatingClient({
           transition={FLIP}
         >
           {faces.map((s) => (
-            <span
+            <motion.span
               key={s}
               className="absolute left-1/2 top-1/2 flex items-center justify-center gap-[0.25em] whitespace-nowrap"
               style={{
@@ -112,9 +112,12 @@ export function RotatingClient({
                 transform: `translate(-50%, -50%) rotateX(${90 * s}deg) translateZ(${RADIUS})`,
                 backfaceVisibility: "hidden",
               }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: s === step ? 1 : 0 }}
+              transition={FLIP}
             >
               <Content item={at(s)} />
-            </span>
+            </motion.span>
           ))}
         </motion.span>
       </motion.span>
