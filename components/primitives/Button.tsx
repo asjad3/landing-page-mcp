@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
-type Variant = "brand" | "ghost" | "white";
+type Variant = "brand" | "ghost" | "white" | "muted";
 type Size = "md" | "lg";
 
 interface CommonProps {
@@ -26,7 +26,9 @@ const variants: Record<Variant, string> = {
   ghost:
     "bg-transparent text-content-primary border border-border-secondary transition-colors hover:bg-black/[0.04] hover:border-border-tertiary",
   white:
-    "bg-white text-content-primary transition-colors hover:bg-white/90",
+    "bg-white text-content-primary border border-black/[0.08] shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-colors hover:bg-white/90",
+  muted:
+    "bg-[#EDEDED] text-content-primary transition-colors hover:bg-[#E3E3E3]",
 };
 
 export function buttonClass({

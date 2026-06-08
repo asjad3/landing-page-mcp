@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Reveal } from "@/components/primitives/Reveal";
+import { ButtonLink } from "@/components/primitives/Button";
 import { FAQ } from "@/lib/data/faq";
 
 function PlusMinus({ open }: { open: boolean }) {
@@ -103,12 +104,17 @@ export function FaqSection() {
             <p className="font-sans text-[17px] leading-[1.7] text-content-secondary max-w-[36ch] mt-5 tracking-[-0.005em]">
               We&apos;ve answered the most frequently asked questions.
             </p>
+            <div className="mt-8">
+              <ButtonLink href="#install" variant="muted" size="lg">
+                Get Set Up
+              </ButtonLink>
+            </div>
           </Reveal>
 
           {/* Right: accordion */}
           <div className="flex-1 min-w-0 border-t border-border-primary">
             {FAQ.map((item, i) => (
-              <FaqRow key={item.q} q={item.q} a={item.a} delay={i * 60} defaultOpen={i === 0} />
+              <FaqRow key={item.q} q={item.q} a={item.a} delay={i * 60} defaultOpen />
             ))}
           </div>
 

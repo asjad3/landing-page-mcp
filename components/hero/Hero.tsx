@@ -47,10 +47,10 @@ export function Hero() {
 
           <div className="flex gap-[10px] flex-wrap justify-center">
             <ButtonLink href="#install" variant="brand" size="lg">
-              Install the server
+              Install The Server
             </ButtonLink>
-            <ButtonLink href="#tools" variant="ghost" size="lg">
-              See the tools
+            <ButtonLink href="#tools" variant="white" size="lg">
+              See The Tools
             </ButtonLink>
           </div>
         </div>

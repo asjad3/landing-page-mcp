@@ -19,6 +19,7 @@ interface ToolBase {
   tag: string;
   name: string;
   desc: string;
+  cta: string;
   span: ToolSpan;
   kind: ToolKind;
 }
@@ -84,6 +85,7 @@ export const TOOLS: Tool[] = [
     tag: "Text to Image",
     name: "Every marketing asset",
     desc: "Turn any product into a campaign in seconds. Posters, ads, lifestyle shots, social media posts. Whatever the channel needs, generated from a single prompt.",
+    cta: "Generate Your First Image",
     initialTiles: T2I_INITIAL,
   },
   {
@@ -93,6 +95,7 @@ export const TOOLS: Tool[] = [
     tag: "Text to Video",
     name: "One prompt replaces your agency",
     desc: "UGC, TV spots, product videos, generated from a brief. Seedance 2.0, up to 10 seconds, any format.",
+    cta: "Create A Video",
     src: `${SEEDANCE_VIDEOS}/29s.mp4`,
     poster: `${SEEDANCE_FRAMES}/29s.webp`,
     durationLabel: "00:00 / 00:08",
@@ -104,6 +107,7 @@ export const TOOLS: Tool[] = [
     tag: "Background Removal",
     name: "Clean product photos, automatically",
     desc: "Pixel-perfect background removal on any image. Hair, edges, fine detail, all intact. Ready for any surface.",
+    cta: "Clean Up An Image",
     src: `${GPT2}/img07_darkest.webp`,
   },
   {
@@ -113,6 +117,7 @@ export const TOOLS: Tool[] = [
     tag: "Image Upscale",
     name: "Make any image print-ready",
     desc: "Up to 4× without the AI smear. Detail-aware diffusion that keeps edges, skin, and text sharp at any size.",
+    cta: "Upscale An Image",
     src: `${GPT2}/img04_justice.webp`,
     sourceLabel: "1024 × 640",
     resultLabel: "4096 × 2560",
@@ -124,6 +129,7 @@ export const TOOLS: Tool[] = [
     tag: "Music Generation",
     name: "Score your content without a studio",
     desc: "Set the mood, tempo, and instruments. Get a production-ready track in seconds. No composer, no license fees.",
+    cta: "Score Your Content",
     src: `${MUSIC}/videos/1.mp4`,
     poster: `${MUSIC}/images/1.webp`,
     caption: "SYNTH PAD · 110 BPM",
@@ -136,6 +142,7 @@ export const TOOLS: Tool[] = [
     tag: "Balance Inquiry",
     name: "Know exactly what you have left",
     desc: "Check credits, usage, and renewal date at any time. No surprises mid-generation.",
+    cta: "Check Your Balance",
   },
 ];
 

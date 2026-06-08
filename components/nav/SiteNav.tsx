@@ -3,19 +3,18 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { IMAGINE_TOOL_LINKS } from "@/lib/data/nav";
 
 const NAV_LINKS = [
-  { label: "Tools",   href: "#tools" },
-  { label: "Install", href: "#install" },
-  { label: "Pricing", href: "https://www.imagine.art/subscription" },
+  { label: "Why MCP",  href: "#why" },
+  { label: "Toolset",  href: "#tools" },
+  { label: "Security", href: "#security" },
+  { label: "FAQ",      href: "#faq" },
+  { label: "Pricing",  href: "https://www.imagine.art/subscription" },
 ];
 
 export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [toolsOpen, setToolsOpen] = useState(false);
-  const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -66,88 +65,19 @@ export function SiteNav() {
 
           {/* Desktop nav links */}
           <nav className="hidden lg:flex items-center gap-0.5">
-            {NAV_LINKS.map((l) =>
-              l.label === "Tools" ? (
-                <div
-                  key={l.label}
-                  className="relative"
-                  onMouseEnter={() => setToolsOpen(true)}
-                  onMouseLeave={() => setToolsOpen(false)}
-                >
-                  <a
-                    href={l.href}
-                    aria-haspopup="menu"
-                    aria-expanded={toolsOpen}
-                    className="inline-flex items-center gap-[6px] px-[14px] py-[6px] rounded-lg font-sans text-[14px] font-medium tracking-[0.14px] whitespace-nowrap transition-colors duration-150"
-                    style={{
-                      color: toolsOpen ? linkColorHover : linkColor,
-                      background: toolsOpen ? linkBgHover : "transparent",
-                    }}
-                  >
-                    {l.label}
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                      <path
-                        d="M2.5 3.75L5 6.25L7.5 3.75"
-                        stroke="currentColor"
-                        strokeWidth="1.25"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </a>
-                  <div
-                    role="menu"
-                    aria-label="Imagine tools"
-                    className="absolute top-full left-0 pt-2"
-                    style={{
-                      opacity: toolsOpen ? 1 : 0,
-                      visibility: toolsOpen ? "visible" : "hidden",
-                      transform: toolsOpen ? "translateY(0)" : "translateY(-4px)",
-                      transition: "opacity 0.18s ease, transform 0.18s ease, visibility 0.18s",
-                      pointerEvents: toolsOpen ? "auto" : "none",
-                    }}
-                  >
-                    <div
-                      className="min-w-[240px] rounded-[22px] p-2"
-                      style={{
-                        background: "rgba(10,10,11,0.78)",
-                        border: "1px solid rgba(255,255,255,0.08)",
-                        backdropFilter: "blur(28px) saturate(180%)",
-                        boxShadow: "0 20px 48px rgba(0,0,0,0.45)",
-                      }}
-                    >
-                      {IMAGINE_TOOL_LINKS.map((t) => (
-                        <a
-                          key={t.label}
-                          href={t.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          role="menuitem"
-                          className="block px-[14px] py-[11px] rounded-[14px] font-sans text-[13.5px] font-medium tracking-[0.1px] transition-colors duration-150"
-                          style={{ color: "rgba(255,255,255,0.75)" }}
-                          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#fff"; (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.07)"; }}
-                          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.75)"; (e.currentTarget as HTMLElement).style.background = "transparent"; }}
-                        >
-                          {t.label}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <a
-                  key={l.label}
-                  href={l.href}
-                  {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="px-[14px] py-[6px] rounded-lg font-sans text-[14px] font-medium tracking-[0.14px] whitespace-nowrap transition-colors duration-150"
-                  style={{ color: linkColor }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = linkColorHover; (e.currentTarget as HTMLElement).style.background = linkBgHover; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = linkColor; (e.currentTarget as HTMLElement).style.background = "transparent"; }}
-                >
-                  {l.label}
-                </a>
-              )
-            )}
+            {NAV_LINKS.map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="px-[14px] py-[6px] rounded-lg font-sans text-[14px] font-medium tracking-[0.14px] whitespace-nowrap transition-colors duration-150"
+                style={{ color: linkColor }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = linkColorHover; (e.currentTarget as HTMLElement).style.background = linkBgHover; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = linkColor; (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+              >
+                {l.label}
+              </a>
+            ))}
           </nav>
 
           {/* Desktop actions */}
@@ -161,7 +91,7 @@ export function SiteNav() {
                 boxShadow: scrolled ? "0 2px 8px rgba(0,0,0,0.2)" : "none",
               }}
             >
-              Get the server
+              Get The Server
             </a>
           </div>
 
@@ -213,68 +143,18 @@ export function SiteNav() {
 
           <div className="flex-1 flex flex-col items-center justify-center pb-10">
             <div className="flex flex-col items-center gap-1">
-              {NAV_LINKS.map((l) =>
-                l.label === "Tools" ? (
-                  <div key={l.label} className="flex flex-col items-center">
-                    <button
-                      type="button"
-                      onClick={() => setMobileToolsOpen((o) => !o)}
-                      aria-expanded={mobileToolsOpen}
-                      className="inline-flex items-center gap-2 text-center px-8 py-2.5 rounded-[10px] font-sans text-[22px] font-light tracking-[-0.2px] transition-colors duration-150 bg-transparent border-none cursor-pointer"
-                      style={{ color: "rgba(0,0,0,0.7)" }}
-                    >
-                      {l.label}
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 10 10"
-                        fill="none"
-                        aria-hidden="true"
-                        style={{
-                          transform: mobileToolsOpen ? "rotate(180deg)" : "rotate(0deg)",
-                          transition: "transform 0.18s ease",
-                        }}
-                      >
-                        <path
-                          d="M2.5 3.75L5 6.25L7.5 3.75"
-                          stroke="currentColor"
-                          strokeWidth="1.25"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </button>
-                    {mobileToolsOpen && (
-                      <div className="flex flex-col items-center gap-0.5 mt-1 mb-2">
-                        {IMAGINE_TOOL_LINKS.map((t) => (
-                          <a
-                            key={t.label}
-                            href={t.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => setMenuOpen(false)}
-                            className="block text-center px-6 py-1.5 font-sans text-[15px] font-light tracking-[-0.1px] transition-colors duration-150"
-                            style={{ color: "rgba(0,0,0,0.55)", textDecoration: "none" }}
-                          >
-                            {t.label}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <a
-                    key={l.label}
-                    href={l.href}
-                    {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    onClick={() => setMenuOpen(false)}
-                    className="block text-center px-8 py-2.5 rounded-[10px] font-sans text-[22px] font-light tracking-[-0.2px] transition-colors duration-150"
-                    style={{ color: "rgba(0,0,0,0.7)", textDecoration: "none" }}
-                  >
-                    {l.label}
-                  </a>
-                )
-              )}
+              {NAV_LINKS.map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  onClick={() => setMenuOpen(false)}
+                  className="block text-center px-8 py-2.5 rounded-[10px] font-sans text-[22px] font-light tracking-[-0.2px] transition-colors duration-150"
+                  style={{ color: "rgba(0,0,0,0.7)", textDecoration: "none" }}
+                >
+                  {l.label}
+                </a>
+              ))}
             </div>
 
             <div className="w-[calc(100%-48px)] h-px bg-black/[0.08] my-4" />
@@ -285,7 +165,7 @@ export function SiteNav() {
                 onClick={() => setMenuOpen(false)}
                 className="bg-content-primary inline-flex items-center justify-center h-11 px-6 rounded-[14px] font-sans text-[14px] font-medium text-white"
               >
-                Get the server
+                Get The Server
               </a>
             </div>
           </div>

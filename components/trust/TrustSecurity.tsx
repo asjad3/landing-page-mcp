@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/primitives/Reveal";
+import { ButtonLink } from "@/components/primitives/Button";
 
 function KeyShieldIcon() {
   return (
@@ -82,6 +83,12 @@ export function TrustSecurity() {
           </Reveal>
 
         </div>
+
+        <Reveal className="flex justify-start pt-12">
+          <ButtonLink href="#install" variant="muted" size="lg">
+            Connect Securely
+          </ButtonLink>
+        </Reveal>
 
         {/* TODO: add "Read our privacy policy" link once a privacy page exists */}
       </div>

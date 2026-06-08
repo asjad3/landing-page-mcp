@@ -43,8 +43,8 @@ export default function Home() {
       <main>
         <Hero />
         <AgentsRow />
-        <TrustedBy />
         <Differentiator />
+        <TrustedBy />
         <TeamsSection />
         <ToolsSection />
         <TrustSecurity />

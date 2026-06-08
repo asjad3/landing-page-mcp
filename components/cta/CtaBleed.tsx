@@ -60,15 +60,8 @@ export function CtaBleed() {
         <Reveal delay={200}>
           <div className="flex items-center gap-4 flex-wrap justify-center mt-10">
             <ButtonLink href="#install" variant="white" size="lg">
-              Install the Server
+              Install The Server
             </ButtonLink>
-            {/* TODO: point at real documentation URL */}
-            <a
-              href="#install"
-              className="inline-flex items-center font-sans text-[15px] font-medium text-white/85 border border-white/20 hover:border-white/40 hover:bg-white/5 rounded-[10px] px-6 h-12 transition-colors"
-            >
-              View Documentation
-            </a>
           </div>
         </Reveal>
       </div>

@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/primitives/Reveal";
+import { ButtonLink } from "@/components/primitives/Button";
 
 function KeyIcon() {
   return (
@@ -86,6 +87,12 @@ export function Differentiator() {
             );
           })}
         </div>
+
+        <Reveal className="flex justify-start pt-12">
+          <ButtonLink href="#install" variant="muted" size="lg">
+            Connect Your Account
+          </ButtonLink>
+        </Reveal>
       </div>
     </section>
   );

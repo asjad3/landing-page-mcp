@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { Reveal } from "@/components/primitives/Reveal";
+import { ButtonLink } from "@/components/primitives/Button";
 
 const CARDS = [
   {
@@ -146,6 +147,12 @@ export function TeamsSection() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal className="flex justify-center pt-14">
+          <ButtonLink href="#install" variant="muted" size="lg">
+            Build Your Workflow
+          </ButtonLink>
+        </Reveal>
 
       </div>
     </section>

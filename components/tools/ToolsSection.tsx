@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/primitives/Reveal";
+import { ButtonLink } from "@/components/primitives/Button";
 import { TOOLS } from "@/lib/data/tools";
 import { ToolVisual } from "./ToolVisual";
 
@@ -31,25 +32,23 @@ export function ToolsSection() {
         {SHOWCASE.map((tool, i) => {
           const isBalance = tool.kind === "balance";
           return (
-          <Reveal
+          <div
             key={tool.fn}
             className="py-14 lg:py-16 relative overflow-hidden"
           >
             <div className="flex flex-col gap-10 lg:gap-16 relative lg:flex-row">
 
               {/* Text */}
-              <div className="lg:w-[320px] shrink-0 flex flex-col justify-center relative overflow-hidden">
+              <Reveal from="left" className="lg:w-[320px] shrink-0 flex flex-col justify-center relative">
                 <span
                   aria-hidden="true"
-                  className="absolute top-0 left-0 font-display font-semibold leading-none text-content-primary select-none pointer-events-none"
-                  style={{ fontSize: "clamp(72px, 9vw, 130px)", opacity: 0.12 }}
+                  className="block font-display font-semibold leading-[0.8] text-content-primary select-none pointer-events-none mb-3"
+                  style={{ fontSize: "clamp(64px, 8vw, 120px)", opacity: 0.12 }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <div className="mb-5">
-                  <span className="inline-block font-sans text-[12px] font-medium text-content-secondary border border-border-tertiary rounded-full px-3 py-1">
-                    {tool.tag}
-                  </span>
+                <div className="font-mono text-[10.5px] font-semibold tracking-[1.8px] uppercase text-content-tertiary mb-3">
+                  {tool.tag}
                 </div>
 
                 <h3
@@ -62,10 +61,16 @@ export function ToolsSection() {
                 <p className="font-sans text-[15px] leading-[1.7] text-content-secondary m-0">
                   {tool.desc}
                 </p>
-              </div>
+
+                <div className="mt-6">
+                  <ButtonLink href="#install" variant="muted" size="lg">
+                    {tool.cta}
+                  </ButtonLink>
+                </div>
+              </Reveal>
 
               {/* Visual — matches the in-agent UI */}
-              <div className="flex-1 min-w-0 flex items-center">
+              <Reveal from="right" delay={140} className="flex-1 min-w-0 flex items-center">
                 {isBalance ? (
                   <div className="w-full min-h-[440px] flex items-center rounded-2xl border border-black/[0.07] bg-white/72 backdrop-blur-2xl shadow-[0_2px_16px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.7)] overflow-hidden px-6 py-3">
                     <div className="w-full rounded-xl overflow-hidden">
@@ -79,10 +84,10 @@ export function ToolsSection() {
                     </div>
                   </div>
                 )}
-              </div>
+              </Reveal>
 
             </div>
-          </Reveal>
+          </div>
           );
         })}
 
