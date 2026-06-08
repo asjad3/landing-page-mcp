@@ -33,7 +33,7 @@ const JSON_CONFIG = `{
   }
 }`;
 
-const AGENT_PROMPT = `Connect the Imagine MCP at ${MCP_URL} — it supports OAuth device flow, discovery at ${MCP_URL}/.well-known/oauth-protected-resource. Run the device flow and send me the link like: Authorize here: https://imagine.art/device?code=XXXXXXXX Then poll the token endpoint until I authorize and confirm once it succeeds.`;
+const AGENT_PROMPT = `Connect the Imagine MCP at ${MCP_URL}. It supports OAuth device flow, discovery at ${MCP_URL}/.well-known/oauth-protected-resource. Run the device flow and send me the link like: Authorize here: https://imagine.art/device?code=XXXXXXXX Then poll the token endpoint until I authorize and confirm once it succeeds.`;
 
 function deviceFlowSteps(agentLabel: string): InstallStep[] {
   return [

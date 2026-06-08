@@ -4,44 +4,50 @@ import { useState } from "react";
 import { Reveal } from "@/components/primitives/Reveal";
 import { FAQ } from "@/lib/data/faq";
 
-function ChevronDown({ open }: { open: boolean }) {
+function PlusMinus({ open }: { open: boolean }) {
   return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      aria-hidden="true"
-      style={{
-        transition: "transform 240ms cubic-bezier(0.2, 0.7, 0.2, 1)",
-        transform: open ? "rotate(180deg)" : "rotate(0deg)",
-        flexShrink: 0,
-      }}
-    >
-      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <span className="shrink-0 flex items-center justify-center w-8 h-8 rounded-full bg-black/[0.05] text-content-primary">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <line x1="1" y1="7" x2="13" y2="7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+        <line
+          x1="7"
+          y1="1"
+          x2="7"
+          y2="13"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          style={{
+            transition: "transform 240ms cubic-bezier(0.2, 0.7, 0.2, 1), opacity 200ms ease",
+            transformOrigin: "center",
+            transform: open ? "scaleY(0)" : "scaleY(1)",
+            opacity: open ? 0 : 1,
+          }}
+        />
+      </svg>
+    </span>
   );
 }
 
-function FaqRow({ q, a, delay }: { q: string; a: string; delay: number }) {
-  const [open, setOpen] = useState(false);
+function FaqRow({ q, a, delay, defaultOpen = false }: { q: string; a: string; delay: number; defaultOpen?: boolean }) {
+  const [open, setOpen] = useState(defaultOpen);
 
   return (
     <Reveal delay={delay} className="border-b border-border-primary">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center justify-between gap-8 py-6 text-left cursor-pointer"
+        className="w-full flex items-start justify-between gap-8 py-6 text-left cursor-pointer group"
         aria-expanded={open}
       >
         <span
-          className="font-sans font-normal leading-snug text-content-primary"
-          style={{ fontSize: "clamp(17px, 1.8vw, 22px)" }}
+          className={`font-sans font-medium leading-snug transition-colors duration-200 ${
+            open ? "text-content-brand" : "text-content-primary group-hover:text-content-brand"
+          }`}
+          style={{ fontSize: "clamp(16px, 1.4vw, 19px)" }}
         >
           {q}
         </span>
-        <span className="text-content-secondary shrink-0">
-          <ChevronDown open={open} />
-        </span>
+        <PlusMinus open={open} />
       </button>
 
       <div
@@ -61,26 +67,52 @@ function FaqRow({ q, a, delay }: { q: string; a: string; delay: number }) {
   );
 }
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
+
 export function FaqSection() {
   return (
     <section id="faq" className="border-t border-border-primary">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="container-page">
+        <div className="py-24 flex flex-col lg:flex-row gap-12 lg:gap-20">
 
-        <Reveal className="pt-24 pb-16 text-center">
-          <h2
-            className="font-display font-semibold capitalize leading-[1.05] tracking-[-0.5px] m-0 text-content-primary"
-            style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
-          >
-            Frequently asked questions
-          </h2>
-        </Reveal>
+          {/* Left: heading + subtext */}
+          <Reveal className="lg:w-[360px] shrink-0">
+            <h2
+              className="font-display font-semibold leading-[1.05] tracking-[-0.5px] m-0 text-content-primary"
+              style={{ fontSize: "clamp(36px, 4vw, 52px)" }}
+            >
+              Got any questions{" "}
+              <span className="text-black/35">left?</span>
+            </h2>
+            {/* TODO: finalize FAQ description copy */}
+            <p className="font-sans text-[17px] leading-[1.7] text-content-secondary max-w-[36ch] mt-5 tracking-[-0.005em]">
+              We&apos;ve answered the most frequently asked questions.
+            </p>
+          </Reveal>
 
-        <div className="pb-24 border-t border-border-primary max-w-[800px] mx-auto">
-          {FAQ.map((item, i) => (
-            <FaqRow key={item.q} q={item.q} a={item.a} delay={i * 60} />
-          ))}
+          {/* Right: accordion */}
+          <div className="flex-1 min-w-0 border-t border-border-primary">
+            {FAQ.map((item, i) => (
+              <FaqRow key={item.q} q={item.q} a={item.a} delay={i * 60} defaultOpen={i === 0} />
+            ))}
+          </div>
+
         </div>
-
       </div>
     </section>
   );

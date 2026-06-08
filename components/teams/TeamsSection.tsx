@@ -6,7 +6,7 @@ import { Reveal } from "@/components/primitives/Reveal";
 const CARDS = [
   {
     title: "E-Commerce brands",
-    desc: "Product shots cleaned, backgrounds stripped, upscaled to print resolution — all inside one conversation.",
+    desc: "Product shots cleaned, backgrounds stripped, upscaled to print resolution, all inside one conversation.",
     video: "/videos/teams/ecommerce.mp4",
   },
   {
@@ -21,7 +21,7 @@ const CARDS = [
   },
   {
     title: "Filmmaking",
-    desc: "From concept to campaign: images, video, and score — produced by a single agent from a brief.",
+    desc: "From concept to campaign: images, video, and score, all produced by a single agent from a brief.",
     video: "/videos/teams/filmmaking.mp4",
   },
   {
@@ -61,7 +61,7 @@ export function TeamsSection() {
   };
 
   return (
-    <section className="border-t border-border-primary py-24">
+    <section className="relative border-t border-border-primary py-24 overflow-hidden isolate">
       <div className="container-page">
 
         {/* Header */}
@@ -71,7 +71,8 @@ export function TeamsSection() {
               className="font-display font-semibold capitalize leading-[1.05] tracking-[-0.5px] m-0 mb-4 text-content-primary text-balance"
               style={{ fontSize: "clamp(32px, 4vw, 52px)" }}
             >
-              From concept to content in one conversation.
+              From concept to content{" "}
+              <span className="text-black/40">in one conversation.</span>
             </h2>
             <p className="font-sans text-[18px] leading-[1.7] text-content-secondary m-0 tracking-[-0.005em]">
               Tell your agent what you're working on. It picks the right tools and delivers production-ready results.
@@ -111,7 +112,7 @@ export function TeamsSection() {
             >
               {/* Media */}
               <div
-                className="w-full overflow-hidden rounded-2xl"
+                className="relative w-full overflow-hidden rounded-2xl border border-border-primary shadow-[0_2px_16px_rgba(0,0,0,0.045)]"
                 style={{ height: "clamp(280px, 36vw, 480px)" }}
               >
                 <video
@@ -120,23 +121,24 @@ export function TeamsSection() {
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover block"
-                  style={{
-                    transition: "transform 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.04)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                  className="w-full h-full object-cover block transition-transform duration-[600ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.05]"
                 />
+                {/* Scrim for title legibility */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
+                  style={{ background: "linear-gradient(to top, rgba(0,0,0,0.55), transparent)" }}
+                />
+                <h3
+                  className="absolute left-5 bottom-4 right-5 font-display font-semibold capitalize text-white leading-snug tracking-[-0.3px] drop-shadow-sm"
+                  style={{ fontSize: "clamp(17px, 1.6vw, 22px)" }}
+                >
+                  {card.title}
+                </h3>
               </div>
 
               {/* Body */}
               <div className="pt-4">
-                <p
-                  className="font-display font-medium capitalize text-content-primary leading-snug tracking-[-0.3px] mb-2"
-                  style={{ fontSize: "clamp(17px, 1.6vw, 22px)" }}
-                >
-                  {card.title}
-                </p>
                 <p className="font-sans text-[15px] leading-[1.7] text-content-secondary">
                   {card.desc}
                 </p>

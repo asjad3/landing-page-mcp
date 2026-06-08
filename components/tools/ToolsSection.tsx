@@ -2,9 +2,11 @@ import { Reveal } from "@/components/primitives/Reveal";
 import { TOOLS } from "@/lib/data/tools";
 import { ToolVisual } from "./ToolVisual";
 
+const SHOWCASE = TOOLS;
+
 export function ToolsSection() {
   return (
-    <section id="tools" className="border-t border-border-primary">
+    <section id="tools" className="relative border-t border-border-primary overflow-hidden isolate">
       <div className="container-page">
 
         {/* Section header */}
@@ -25,15 +27,17 @@ export function ToolsSection() {
           </p>
         </Reveal>
 
-        {/* Tool rows */}
-        {TOOLS.map((tool, i) => (
+        {/* Tool rows — consistent layout: text left, visual right */}
+        {SHOWCASE.map((tool, i) => {
+          const isBalance = tool.kind === "balance";
+          return (
           <Reveal
             key={tool.fn}
-            className="border-t border-border-primary py-14 lg:py-16 relative overflow-hidden"
+            className="py-14 lg:py-16 relative overflow-hidden"
           >
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 relative">
+            <div className="flex flex-col gap-10 lg:gap-16 relative lg:flex-row">
 
-              {/* Left: text */}
+              {/* Text */}
               <div className="lg:w-[320px] shrink-0 flex flex-col justify-center relative overflow-hidden">
                 <span
                   aria-hidden="true"
@@ -60,18 +64,27 @@ export function ToolsSection() {
                 </p>
               </div>
 
-              {/* Right: widget rendering — matches the in-agent UI */}
-              <div className="flex-1 min-w-0">
-                <div className="rounded-2xl bg-surface-primary border border-border-primary overflow-hidden h-[520px] relative px-6 py-3">
-                  <div className="absolute inset-x-6 inset-y-3 flex flex-col justify-center rounded-xl overflow-hidden">
-                    <ToolVisual tool={tool} />
+              {/* Visual — matches the in-agent UI */}
+              <div className="flex-1 min-w-0 flex items-center">
+                {isBalance ? (
+                  <div className="w-full min-h-[440px] flex items-center rounded-2xl border border-black/[0.07] bg-white/72 backdrop-blur-2xl shadow-[0_2px_16px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.7)] overflow-hidden px-6 py-3">
+                    <div className="w-full rounded-xl overflow-hidden">
+                      <ToolVisual tool={tool} />
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="w-full rounded-2xl border border-black/[0.07] bg-white/72 backdrop-blur-2xl shadow-[0_2px_16px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.7)] overflow-hidden h-[680px] relative px-6 py-3">
+                    <div className="absolute inset-x-6 inset-y-3 flex flex-col justify-center rounded-xl overflow-hidden">
+                      <ToolVisual tool={tool} />
+                    </div>
+                  </div>
+                )}
               </div>
 
             </div>
           </Reveal>
-        ))}
+          );
+        })}
 
         {/* Bottom spacing */}
         <div className="pb-24" />

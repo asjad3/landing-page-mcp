@@ -9,7 +9,6 @@ import { RotatingClient } from "./RotatingClient";
 const CLIENTS = [
   { name: "Claude",   icon: "/ai-logos/icons/claude.svg" },
   { name: "Cursor",   icon: "/ai-logos/icons/cursor.svg" },
-  { name: "Cline",    icon: "/ai-logos/icons/cline.svg" },
   { name: "Hermes",   icon: "/ai-logos/icons/hermes.svg" },
   { name: "OpenClaw", icon: "/ai-logos/icons/openclaw.svg" },
 ];
@@ -26,8 +25,8 @@ export function Hero() {
           <img
             src="/imagine-mcp-logo.svg"
             alt="ImagineMCP"
-            width={161}
-            height={30}
+            width={188}
+            height={35}
             className="mb-6"
           />
           <h1

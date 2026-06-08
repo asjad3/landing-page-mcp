@@ -1,9 +1,12 @@
 import { SiteNav } from "@/components/nav/SiteNav";
+import { PageBackdrop } from "@/components/primitives/PageBackdrop";
 import { Hero } from "@/components/hero/Hero";
 import { AgentsRow } from "@/components/agents/AgentsRow";
 import { TrustedBy } from "@/components/trusted/TrustedBy";
+import { Differentiator } from "@/components/why/Differentiator";
 import { ToolsSection } from "@/components/tools/ToolsSection";
 import { TeamsSection } from "@/components/teams/TeamsSection";
+import { TrustSecurity } from "@/components/trust/TrustSecurity";
 import { FaqSection } from "@/components/faq/FaqSection";
 import { CtaBleed } from "@/components/cta/CtaBleed";
 import { SiteFooter } from "@/components/footer/SiteFooter";
@@ -35,26 +38,16 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <PageBackdrop />
       <SiteNav />
       <main>
-        {/* Border lines — scoped to this wrapper, stop after TeamsSection */}
-        <div className="relative">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 pointer-events-none mx-auto"
-            style={{
-              maxWidth: "1240px",
-              borderLeft: "1px solid rgba(0,0,0,0.06)",
-              borderRight: "1px solid rgba(0,0,0,0.06)",
-            }}
-          />
-          <Hero />
-          <TrustedBy />
-          <AgentsRow />
-          <ToolsSection />
-        </div>
-
+        <Hero />
+        <AgentsRow />
+        <TrustedBy />
+        <Differentiator />
         <TeamsSection />
+        <ToolsSection />
+        <TrustSecurity />
         <FaqSection />
         <CtaBleed />
       </main>

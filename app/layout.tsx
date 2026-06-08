@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | Imagine MCP",
   },
   description:
-    "An MCP server for ImagineArt. Six creative endpoints (text-to-image, video, music, upscaler, background remover, balance) for Claude, Cursor, Cline, Hermes, OpenClaw, and any MCP-compatible client.",
+    "An MCP server for ImagineArt. Six creative endpoints (text-to-image, video, music, upscaler, background remover, balance) for Claude, Cursor, Hermes, OpenClaw, and any MCP-compatible client.",
   applicationName: "Imagine MCP",
   authors: [{ name: "Vyro AI" }],
   keywords: [

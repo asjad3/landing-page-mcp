@@ -59,7 +59,7 @@ export function InstallPanel() {
     <div className="mt-24" id="install">
       <div
         role="tablist"
-        className="inline-flex gap-1 p-1 bg-white/45 backdrop-blur-xl border border-white/60 shadow-[0_4px_16px_rgba(0,0,0,0.05)] rounded-[10px] mb-[18px]"
+        className="inline-flex gap-1 p-1 bg-white/72 backdrop-blur-2xl border border-black/[0.07] shadow-[0_4px_16px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.7)] rounded-[10px] mb-[18px]"
       >
         {METHOD_ORDER.map((id) => {
           const isActive = id === active;
@@ -85,7 +85,7 @@ export function InstallPanel() {
 
       <div
         className={
-          "grid grid-cols-1 w-full rounded-2xl overflow-hidden bg-white/45 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.08)] " +
+          "grid grid-cols-1 w-full rounded-2xl overflow-hidden bg-white/72 backdrop-blur-2xl border border-black/[0.07] shadow-[0_8px_32px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.7)] " +
           colsClass
         }
       >
@@ -102,9 +102,9 @@ export function InstallPanel() {
             <div className="absolute top-[18px] right-[18px] font-mono font-medium text-[11px] tracking-[0.04em] text-content-tertiary">
               {step.num}
             </div>
-            <h3 className="font-display text-[16px] font-semibold capitalize tracking-[-0.01em] text-content-primary m-0 mb-2 pr-9">
+            <p className="font-display text-[16px] font-semibold capitalize tracking-[-0.01em] text-content-primary m-0 mb-2 pr-9">
               {step.title}
-            </h3>
+            </p>
             <p className="font-sans text-[14px] font-normal leading-[1.55] text-content-secondary m-0 mb-[14px] [&_strong]:text-content-primary [&_strong]:font-medium [&_em]:not-italic [&_em]:text-primary-70 [&_em]:font-medium [&_code]:font-mono [&_code]:text-[12px] [&_code]:font-medium [&_code]:text-primary-70 [&_code]:bg-surface-secondary [&_code]:px-[6px] [&_code]:py-px [&_code]:rounded [&_code]:border [&_code]:border-border-primary">
               {step.body}
             </p>

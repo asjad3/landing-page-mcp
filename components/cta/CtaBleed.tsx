@@ -6,7 +6,7 @@ export function CtaBleed() {
   return (
     <section
       id="cta"
-      className="relative py-24 md:pt-36 md:pb-40 overflow-hidden border-y border-border-primary isolate"
+      className="relative py-28 md:py-40 overflow-hidden border-y border-border-primary isolate bg-neutral-110"
     >
       <video
         autoPlay
@@ -15,46 +15,60 @@ export function CtaBleed() {
         playsInline
         preload="metadata"
         poster={CTA_VIDEO.poster}
-        className="absolute inset-0 w-full h-full object-cover -z-[2] opacity-[0.18]"
+        className="absolute inset-0 w-full h-full object-cover -z-[2] opacity-[0.22]"
       >
         <source src={CTA_VIDEO.src} type="video/mp4" />
       </video>
+      {/* Darkening + vignette for legible text */}
       <div
         className="absolute inset-0 -z-[1]"
         style={{
           background:
-            "linear-gradient(180deg, #ffffff 0%, rgb(255 255 255 / 0.72) 25%, rgb(255 255 255 / 0.72) 75%, #ffffff 100%)",
+            "radial-gradient(ellipse 75% 65% at 50% 45%, rgb(15 15 15 / 0.6), rgb(15 15 15 / 0.95))",
         }}
       />
-      <div className="container-page">
+      {/* Subtle brand glow */}
+      <div
+        aria-hidden="true"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[680px] rounded-full blur-[140px] -z-[1] pointer-events-none"
+        style={{ background: "radial-gradient(circle, rgba(251,86,7,0.22), transparent 70%)" }}
+      />
+      {/* Edge fades so the dark bleed blends into the white sections */}
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-24 -z-[1] bg-gradient-to-b from-neutral-110 to-transparent" />
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-24 -z-[1] bg-gradient-to-t from-neutral-110 to-transparent" />
+
+      <div className="container-page flex flex-col items-center text-center">
         <Reveal>
-          <div className="font-mono text-[10.5px] font-semibold tracking-[1.8px] uppercase text-content-tertiary mb-[18px]">
-            Ship it
+          <div className="font-mono text-[10.5px] font-semibold tracking-[1.8px] uppercase text-white/45 mb-6">
+            Ready when you are
           </div>
         </Reveal>
         <Reveal delay={80}>
           <h2
-            className="font-display font-semibold capitalize leading-[1.2] tracking-[-0.2px] text-content-primary text-balance my-[18px] max-w-[14ch]"
-            style={{ fontSize: "clamp(32px, 4vw, 56px)" }}
+            className="font-display font-semibold capitalize leading-[1.08] tracking-[-0.5px] text-white text-balance m-0 max-w-[18ch]"
+            style={{ fontSize: "clamp(34px, 4.4vw, 60px)" }}
           >
-            Plug in. Generate.
+            Plug in. Start generating.
           </h2>
         </Reveal>
-        <Reveal delay={160}>
-          <p className="font-sans text-[18px] leading-[1.7] text-content-secondary max-w-[56ch] mb-8">
-            One install, six tools, any client speaking the Model Context
-            Protocol. Sign in with your imagine.art account and start calling
-            tools from your agent.
+        <Reveal delay={140}>
+          <p className="font-sans text-[17px] md:text-[18px] leading-[1.7] text-white/65 m-0 mt-6 max-w-[52ch] tracking-[-0.005em]">
+            Connect Imagine MCP to your client and create your first asset in
+            under a minute. Your account, your models, your output.
           </p>
         </Reveal>
-        <Reveal delay={240}>
-          <div className="flex gap-3 flex-wrap">
-            <ButtonLink href="#install" variant="brand" size="lg">
-              Get Imagine MCP
+        <Reveal delay={200}>
+          <div className="flex items-center gap-4 flex-wrap justify-center mt-10">
+            <ButtonLink href="#install" variant="white" size="lg">
+              Install the Server
             </ButtonLink>
-            <ButtonLink href="#install" variant="ghost" size="lg">
-              Read the docs
-            </ButtonLink>
+            {/* TODO: point at real documentation URL */}
+            <a
+              href="#install"
+              className="inline-flex items-center font-sans text-[15px] font-medium text-white/85 border border-white/20 hover:border-white/40 hover:bg-white/5 rounded-[10px] px-6 h-12 transition-colors"
+            >
+              View Documentation
+            </a>
           </div>
         </Reveal>
       </div>

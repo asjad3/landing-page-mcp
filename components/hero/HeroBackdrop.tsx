@@ -35,7 +35,7 @@ export function HeroBackdrop() {
 
       {/* Retro perspective grid floor at the bottom of the hero */}
       <div
-        className="absolute left-0 right-0 bottom-0 h-[360px]"
+        className="absolute left-0 right-0 bottom-0 h-[360px] opacity-50"
         style={{
           maskImage:
             "linear-gradient(to bottom, transparent 0%, #000 45%), linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%)",
