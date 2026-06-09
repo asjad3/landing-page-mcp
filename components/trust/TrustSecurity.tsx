@@ -24,13 +24,13 @@ function NoStoreIcon() {
 const STATEMENTS = [
   {
     icon: KeyShieldIcon,
-    title: "Account-scoped authentication",
-    body: "Every request authenticates through your imagine.art account. No shared keys, no separate credentials to manage.",
+    title: "One login for all access",
+    body: "Every request runs through the same imagine.art account that already protects your workspace, so there are no shared API keys or separate credentials involved at any point.",
   },
   {
     icon: NoStoreIcon,
-    title: "Nothing is stored",
-    body: "We don't retain prompts, outputs, or session data. What you generate stays yours.",
+    title: "Zero data retention",
+    body: "The server processes each request independently without retaining prompts, generated outputs, or session data, so everything you create stays entirely yours.",
   },
 ];
 
@@ -49,11 +49,12 @@ export function TrustSecurity() {
               className="font-display font-semibold capitalize leading-[1.05] tracking-[-0.5px] m-0 mb-4 text-content-primary text-balance"
               style={{ fontSize: "clamp(28px, 3.2vw, 44px)" }}
             >
-              Built On Your Account, Not Around It.
+              Your account is the only key you need.
             </h2>
             <p className="font-sans text-[17px] leading-[1.7] text-content-secondary m-0 max-w-[42ch] tracking-[-0.005em]">
-              The MCP server inherits the trust boundary of your imagine.art
-              account, so there's nothing new to secure.
+              The Imagine MCP server authenticates through your existing
+              imagine.art login, so there are no additional credentials to
+              create, no keys to manage, and nothing new to secure.
             </p>
           </Reveal>
 

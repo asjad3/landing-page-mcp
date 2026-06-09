@@ -42,17 +42,17 @@ const CARDS = [
   {
     icon: KeyIcon,
     title: "No API key needed",
-    body: "Sign in with your imagine.art account. No keys to generate, manage, or rotate.",
+    body: "The Imagine MCP server authenticates every request through your imagine.art account, so there are no API keys to generate, store, or manage on your end.",
   },
   {
     icon: StackIcon,
     title: "Six tools in one connection",
-    body: "Image generation, video, music, upscaling, background removal. All from a single MCP server.",
+    body: "Image generation, video, music, upscaling, and background removal are all accessible through a single MCP server connection that lets you chain every tool in one conversation.",
   },
   {
     icon: WalletIcon,
     title: "Uses your current balance",
-    body: "Same credits, same plan. Nothing extra to buy or configure.",
+    body: "Imagine MCP runs on the same credit system as the platform, so your existing plan and balance carry over directly with no separate pricing or additional charges.",
   },
 ];
 
@@ -69,9 +69,10 @@ export function Differentiator() {
             Why Imagine MCP
           </h2>
           <p className="font-sans text-[18px] leading-[1.7] text-content-secondary m-0 max-w-[60ch] tracking-[-0.005em]">
-            {/* TODO: section description copy */}
-            Connect once and start generating. No keys, no extra billing, no
-            setup beyond signing in.
+            Most creative MCP servers require API keys, separate billing, and
+            credential management across platforms. ImagineArt&apos;s MCP skips
+            all of that, connects with your existing imagine.art account, and
+            every tool is ready to use.
           </p>
         </Reveal>
 

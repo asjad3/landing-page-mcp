@@ -97,9 +97,9 @@ export function FaqSection() {
               Got any questions{" "}
               <span className="text-black/35">left?</span>
             </h2>
-            {/* TODO: finalize FAQ description copy */}
             <p className="font-sans text-[17px] leading-[1.7] text-content-secondary max-w-[36ch] mt-5 tracking-[-0.005em]">
-              We&apos;ve answered the most frequently asked questions.
+              We&apos;ve answered the most frequently asked questions about
+              Imagine MCP.
             </p>
           </Reveal>
 

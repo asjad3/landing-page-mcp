@@ -22,13 +22,23 @@ const CARDS = [
   },
   {
     title: "Filmmaking",
-    desc: "From concept to campaign: images, video, and score, all produced by a single agent from a brief.",
+    desc: "Concept art with Text to Image, a 10-second clip with Seedance 2.0, and a score with Music Generation. The whole pre-production pipeline in one conversation.",
     video: "/videos/teams/filmmaking.mp4",
   },
   {
     title: "Agencies",
     desc: "Ten client brands. Ten distinct visual identities. Generated in parallel and delivered on deadline.",
     video: "/videos/teams/agencies.mp4",
+  },
+  {
+    title: "Developers & agent builders",
+    desc: "Add creative generation to your agent pipeline. Chain text-to-image, background removal, and upscaling as sequential tool calls in Claude Code or any MCP environment.",
+    video: "/videos/teams/usecase-for-developers.mp4",
+  },
+  {
+    title: "YouTube & video creators",
+    desc: "Generate thumbnail concepts in multiple styles, produce a background track that matches the tone, and export everything at the right resolution before you finish the draft.",
+    video: "/videos/teams/usecase-for-youtubers.mp4",
   },
 ];
 
@@ -72,11 +82,11 @@ export function TeamsSection() {
               className="font-display font-semibold capitalize leading-[1.05] tracking-[-0.5px] m-0 mb-4 text-content-primary text-balance"
               style={{ fontSize: "clamp(32px, 4vw, 52px)" }}
             >
-              From concept to content{" "}
-              <span className="text-black/40">in one conversation.</span>
+              What you can build{" "}
+              <span className="text-black/40">with Imagine MCP.</span>
             </h2>
             <p className="font-sans text-[18px] leading-[1.7] text-content-secondary m-0 tracking-[-0.005em]">
-              Tell your agent what you're working on. It picks the right tools and delivers production-ready results.
+              Tell your agent what you&apos;re working on and it picks the right tools from the Imagine MCP server, chains them together, and delivers production-ready results without you leaving the conversation.
             </p>
           </div>
 

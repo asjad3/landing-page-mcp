@@ -10,11 +10,11 @@ export const FAQ: FaqItem[] = [
   },
   {
     q: "Which agents are supported?",
-    a: "Imagine MCP works with Claude, Cursor, Hermes, and OpenClaw. Any agent or client that speaks MCP can connect, including custom setups running locally or on a server.",
+    a: "Imagine MCP works with Claude, Cursor, Hermes, and OpenClaw. Any agent or client that speaks MCP can connect, including custom setups running locally or on a server. If you're using MCP Desktop through Claude, setup takes less than a minute.",
   },
   {
     q: "What tools are available?",
-    a: "Six creative endpoints: text-to-image, text-to-video, image upscaler, background remover, music generation, and balance inquiry. Each is a native MCP tool, callable directly in conversation.",
+    a: "Six creative tools: text-to-image, text-to-video, image upscaler, background remover, music generation, and balance inquiry. Each is a native MCP tool, callable directly in conversation.",
   },
   {
     q: "What can I create?",

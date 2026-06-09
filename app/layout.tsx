@@ -13,11 +13,11 @@ const googleSans = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://imagine-mcp.vyro.ai"),
   title: {
-    default: "Imagine MCP. Creative tools for any agent.",
+    default: "Imagine MCP Server – Generate Images, Video & Music in Any Agent",
     template: "%s | Imagine MCP",
   },
   description:
-    "An MCP server for ImagineArt. Six creative endpoints (text-to-image, video, music, upscaler, background remover, balance) for Claude, Cursor, Hermes, OpenClaw, and any MCP-compatible client.",
+    "An MCP server with six creative tools for Claude, Cursor, and any MCP client without an API key. Generate images, video, and music using your existing imagine.art credits.",
   applicationName: "Imagine MCP",
   authors: [{ name: "Vyro AI" }],
   keywords: [
@@ -33,16 +33,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Imagine MCP",
-    title: "Imagine MCP. Creative tools for any agent.",
+    title: "Imagine MCP Server – Generate Images, Video & Music in Any Agent",
     description:
-      "An MCP server for ImagineArt. Six creative endpoints for Claude, Cursor, and any MCP-compatible client.",
+      "Six creative tools for Claude, Cursor, and any MCP client without an API key. Generate images, video, and music using your existing imagine.art credits.",
     images: [{ url: "/imagine-logo.svg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Imagine MCP. Creative tools for any agent.",
+    title: "Imagine MCP Server – Generate Images, Video & Music in Any Agent",
     description:
-      "An MCP server for ImagineArt. Six creative endpoints for any MCP-compatible client.",
+      "Six creative tools for any MCP client without an API key. Generate images, video, and music using your existing imagine.art credits.",
   },
   robots: { index: true, follow: true },
   icons: { icon: "/imagine-logo.svg" },

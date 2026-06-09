@@ -48,7 +48,7 @@ export function CtaBleed() {
             className="font-display font-semibold capitalize leading-[1.08] tracking-[-0.5px] text-white text-balance m-0 max-w-[18ch]"
             style={{ fontSize: "clamp(34px, 4.4vw, 60px)" }}
           >
-            Plug in. Start generating.
+            Your next asset is one connection away.
           </h2>
         </Reveal>
         <Reveal delay={140}>
