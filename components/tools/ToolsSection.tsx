@@ -11,7 +11,7 @@ export function ToolsSection() {
       <div className="container-page">
 
         {/* Section header */}
-        <Reveal className="pt-24 pb-20 max-w-[720px]">
+        <Reveal className="pt-16 pb-12 md:pt-24 md:pb-20 max-w-[720px]">
           <div className="font-mono text-[10.5px] font-semibold tracking-[1.8px] uppercase text-content-tertiary mb-[18px]">
             Toolset
           </div>
@@ -34,9 +34,9 @@ export function ToolsSection() {
           return (
           <div
             key={tool.fn}
-            className="py-14 lg:py-16 relative overflow-hidden"
+            className="py-10 md:py-14 lg:py-16 relative overflow-hidden"
           >
-            <div className="flex flex-col gap-10 lg:gap-16 relative lg:flex-row">
+            <div className="flex flex-col gap-6 md:gap-10 lg:gap-16 relative lg:flex-row">
 
               {/* Text */}
               <Reveal from="left" className="lg:w-[320px] shrink-0 flex flex-col justify-center relative">
@@ -72,14 +72,14 @@ export function ToolsSection() {
               {/* Visual — matches the in-agent UI */}
               <Reveal from="right" delay={140} className="flex-1 min-w-0 flex items-center">
                 {isBalance ? (
-                  <div className="w-full min-h-[440px] flex items-center rounded-2xl border border-black/[0.07] bg-white/72 backdrop-blur-2xl shadow-[0_2px_16px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.7)] overflow-hidden px-6 py-3">
+                  <div className="w-full min-h-[320px] sm:min-h-[440px] flex items-center rounded-2xl border border-black/[0.07] bg-white/72 backdrop-blur-2xl shadow-[0_2px_16px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.7)] overflow-hidden px-4 py-4 sm:px-6 sm:py-3">
                     <div className="w-full rounded-xl overflow-hidden">
                       <ToolVisual tool={tool} />
                     </div>
                   </div>
                 ) : (
-                  <div className="w-full rounded-2xl border border-black/[0.07] bg-white/72 backdrop-blur-2xl shadow-[0_2px_16px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.7)] overflow-hidden h-[680px] relative px-6 py-3">
-                    <div className="absolute inset-x-6 inset-y-3 flex flex-col justify-center rounded-xl overflow-hidden">
+                  <div className="w-full rounded-2xl border border-black/[0.07] bg-white/72 backdrop-blur-2xl shadow-[0_2px_16px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.7)] overflow-hidden h-[400px] sm:h-[560px] lg:h-[680px] relative px-4 py-4 sm:px-6 sm:py-3">
+                    <div className="absolute inset-4 sm:inset-x-6 sm:inset-y-3 flex flex-col justify-center rounded-xl overflow-hidden">
                       <ToolVisual tool={tool} />
                     </div>
                   </div>
@@ -92,7 +92,7 @@ export function ToolsSection() {
         })}
 
         {/* Bottom spacing */}
-        <div className="pb-24" />
+        <div className="pb-16 md:pb-24" />
       </div>
     </section>
   );

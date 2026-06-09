@@ -58,9 +58,9 @@ const CARDS = [
 
 export function Differentiator() {
   return (
-    <section id="why" className="relative border-t border-border-primary py-24 overflow-hidden isolate">
+    <section id="why" className="relative border-t border-border-primary py-16 md:py-24 overflow-hidden isolate">
       <div className="container-page">
-        <Reveal className="max-w-[720px] mb-14">
+        <Reveal className="max-w-[720px] mb-10 md:mb-14">
           {/* TODO: finalize headline + description copy */}
           <h2
             className="font-display font-semibold capitalize leading-[1.05] tracking-[-0.5px] m-0 mb-4 text-content-primary text-balance"

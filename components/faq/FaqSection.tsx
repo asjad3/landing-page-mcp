@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Reveal } from "@/components/primitives/Reveal";
-import { ButtonLink } from "@/components/primitives/Button";
 import { FAQ } from "@/lib/data/faq";
 
 function PlusMinus({ open }: { open: boolean }) {
@@ -87,7 +86,7 @@ export function FaqSection() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <div className="container-page">
-        <div className="py-24 flex flex-col lg:flex-row gap-12 lg:gap-20">
+        <div className="py-16 md:py-24 flex flex-col lg:flex-row gap-10 lg:gap-20">
 
           {/* Left: heading + subtext */}
           <Reveal className="lg:w-[360px] shrink-0">
@@ -102,11 +101,6 @@ export function FaqSection() {
             <p className="font-sans text-[17px] leading-[1.7] text-content-secondary max-w-[36ch] mt-5 tracking-[-0.005em]">
               We&apos;ve answered the most frequently asked questions.
             </p>
-            <div className="mt-8">
-              <ButtonLink href="#install" variant="muted" size="lg">
-                Get Set Up
-              </ButtonLink>
-            </div>
           </Reveal>
 
           {/* Right: accordion */}

@@ -4,7 +4,7 @@ import { AGENTS } from "@/lib/data/agents";
 
 export function AgentsRow() {
   return (
-    <section className="py-24 pb-10">
+    <section className="py-16 pb-10 md:py-24 md:pb-10">
       <div className="container-page">
         <Reveal>
           <div className="font-mono text-[10.5px] font-semibold tracking-[1.8px] uppercase text-content-tertiary text-center mb-7">

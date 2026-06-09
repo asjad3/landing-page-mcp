@@ -62,11 +62,11 @@ export function TeamsSection() {
   };
 
   return (
-    <section className="relative border-t border-border-primary py-24 overflow-hidden isolate">
+    <section className="relative border-t border-border-primary py-16 md:py-24 overflow-hidden isolate">
       <div className="container-page">
 
         {/* Header */}
-        <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
+        <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 md:mb-14">
           <div className="max-w-[640px]">
             <h2
               className="font-display font-semibold capitalize leading-[1.05] tracking-[-0.5px] m-0 mb-4 text-content-primary text-balance"

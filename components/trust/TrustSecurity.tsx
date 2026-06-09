@@ -13,10 +13,10 @@ function KeyShieldIcon() {
 function NoStoreIcon() {
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-      <path d="M3.5 6.5c0-1.1 3.4-2 7.5-2s7.5.9 7.5 2-3.4 2-7.5 2-7.5-.9-7.5-2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-      <path d="M3.5 6.5v9c0 1.1 3.4 2 7.5 2 1.5 0 2.9-.12 4-.33" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M3.5 11c0 1.1 3.4 2 7.5 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M4 4l14 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <ellipse cx="11" cy="6" rx="6.5" ry="2.5" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M4.5 6v10c0 1.38 2.91 2.5 6.5 2.5s6.5-1.12 6.5-2.5V6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M4.5 11c0 1.38 2.91 2.5 6.5 2.5s6.5-1.12 6.5-2.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M4 3.5l14 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -36,7 +36,7 @@ const STATEMENTS = [
 
 export function TrustSecurity() {
   return (
-    <section id="security" className="relative border-t border-border-primary bg-surface-primary py-24 overflow-hidden isolate">
+    <section id="security" className="relative border-t border-border-primary bg-surface-primary py-16 md:py-24 overflow-hidden isolate">
       <div className="container-page">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,380px)_1fr] gap-x-16 gap-y-12 items-start">
 
@@ -65,7 +65,7 @@ export function TrustSecurity() {
                 return (
                   <div
                     key={s.title}
-                    className="rounded-2xl border border-black/[0.07] bg-white/72 backdrop-blur-2xl shadow-[0_2px_16px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.7)] p-6"
+                    className="rounded-2xl border border-white/60 bg-white/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.7)] p-7"
                   >
                     <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-primary-10 text-primary-60 mb-5">
                       <Icon />
