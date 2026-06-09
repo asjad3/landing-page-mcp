@@ -41,9 +41,7 @@ function FaqRow({ q, a, delay, defaultOpen = false }: { q: string; a: string; de
         aria-expanded={open}
       >
         <span
-          className={`font-sans font-medium leading-snug transition-colors duration-200 ${
-            open ? "text-content-brand" : "text-content-primary group-hover:text-content-brand"
-          }`}
+          className="font-sans font-medium leading-snug text-content-primary"
           style={{ fontSize: "clamp(16px, 1.4vw, 19px)" }}
         >
           {q}
