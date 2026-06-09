@@ -115,7 +115,9 @@
     line-height: 24px;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden;
+    /* clip (not hidden) avoids creating a scroll container, which would
+       break position: sticky used by the toolset card stack. */
+    overflow-x: clip;
   }
   *,
   *::before,
@@ -277,10 +279,13 @@
   50%       { transform: translateY(25px); }
 }
 
+/* Small translate range keeps the warm wash drifting subtly; a modest scale
+   (>= 1 + translateX%/50) is enough to keep both edges covered without the
+   560px radial circle blowing up to fill the viewport with flat orange. */
 @keyframes hero-glow-drift {
-  0%   { transform: translate3d(-16%, -2%, 0) scale(1); }
-  50%  { transform: translate3d(16%, 8%, 0) scale(1.2); }
-  100% { transform: translate3d(-16%, -2%, 0) scale(1); }
+  0%   { transform: translate3d(-5%, -2%, 0) scale(1.12); }
+  50%  { transform: translate3d(5%, 6%, 0) scale(1.18); }
+  100% { transform: translate3d(-5%, -2%, 0) scale(1.12); }
 }
 
 .hero-glow {

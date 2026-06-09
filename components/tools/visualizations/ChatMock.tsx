@@ -20,7 +20,7 @@ export function ChatMock({
   cardGradient = DEFAULT_GRADIENT,
 }: Props) {
   return (
-    <div className="w-full h-full flex flex-col gap-3 p-5">
+    <div className="w-full h-full flex flex-col gap-2.5 sm:gap-3 p-3 sm:p-5">
 
       {/* User bubble */}
       <div className="flex justify-end shrink-0">
@@ -35,7 +35,7 @@ export function ChatMock({
           className="absolute inset-0"
           style={{ background: cardGradient }}
         />
-        <div className="relative h-full flex flex-col gap-3 p-5">
+        <div className="relative h-full flex flex-col gap-2.5 sm:gap-3 p-3 sm:p-5">
 
           {/* Header */}
           <div className="flex items-center gap-2 shrink-0">

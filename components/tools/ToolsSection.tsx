@@ -1,13 +1,9 @@
 import { Reveal } from "@/components/primitives/Reveal";
-import { ButtonLink } from "@/components/primitives/Button";
-import { TOOLS } from "@/lib/data/tools";
-import { ToolVisual } from "./ToolVisual";
-
-const SHOWCASE = TOOLS;
+import { ToolStack } from "./ToolStack";
 
 export function ToolsSection() {
   return (
-    <section id="tools" className="relative border-t border-border-primary overflow-hidden isolate">
+    <section id="tools" className="relative border-t border-border-primary isolate">
       <div className="container-page">
 
         {/* Section header */}
@@ -28,68 +24,8 @@ export function ToolsSection() {
           </p>
         </Reveal>
 
-        {/* Tool rows — consistent layout: text left, visual right */}
-        {SHOWCASE.map((tool, i) => {
-          const isBalance = tool.kind === "balance";
-          return (
-          <div
-            key={tool.fn}
-            className="py-10 md:py-14 lg:py-16 relative overflow-hidden"
-          >
-            <div className="flex flex-col gap-6 md:gap-10 lg:gap-16 relative lg:flex-row">
-
-              {/* Text */}
-              <Reveal from="left" className="lg:w-[320px] shrink-0 flex flex-col justify-center relative">
-                <span
-                  aria-hidden="true"
-                  className="block font-display font-semibold leading-[0.8] text-content-primary select-none pointer-events-none mb-3"
-                  style={{ fontSize: "clamp(64px, 8vw, 120px)", opacity: 0.12 }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div className="font-mono text-[10.5px] font-semibold tracking-[1.8px] uppercase text-content-tertiary mb-3">
-                  {tool.tag}
-                </div>
-
-                <h3
-                  className="font-display font-semibold capitalize leading-[1.1] tracking-[-0.5px] text-content-primary m-0 mb-3"
-                  style={{ fontSize: "clamp(20px, 2.2vw, 30px)" }}
-                >
-                  {tool.name}
-                </h3>
-
-                <p className="font-sans text-[15px] leading-[1.7] text-content-secondary m-0">
-                  {tool.desc}
-                </p>
-
-                <div className="mt-6">
-                  <ButtonLink href="#install" variant="muted" size="lg">
-                    {tool.cta}
-                  </ButtonLink>
-                </div>
-              </Reveal>
-
-              {/* Visual — matches the in-agent UI */}
-              <Reveal from="right" delay={140} className="flex-1 min-w-0 flex items-center">
-                {isBalance ? (
-                  <div className="w-full min-h-[320px] sm:min-h-[440px] flex items-center rounded-2xl border border-black/[0.07] bg-white/72 backdrop-blur-2xl shadow-[0_2px_16px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.7)] overflow-hidden px-4 py-4 sm:px-6 sm:py-3">
-                    <div className="w-full rounded-xl overflow-hidden">
-                      <ToolVisual tool={tool} />
-                    </div>
-                  </div>
-                ) : (
-                  <div className="w-full rounded-2xl border border-black/[0.07] bg-white/72 backdrop-blur-2xl shadow-[0_2px_16px_rgba(0,0,0,0.035),inset_0_1px_0_rgba(255,255,255,0.7)] overflow-hidden h-[400px] sm:h-[560px] lg:h-[680px] relative px-4 py-4 sm:px-6 sm:py-3">
-                    <div className="absolute inset-4 sm:inset-x-6 sm:inset-y-3 flex flex-col justify-center rounded-xl overflow-hidden">
-                      <ToolVisual tool={tool} />
-                    </div>
-                  </div>
-                )}
-              </Reveal>
-
-            </div>
-          </div>
-          );
-        })}
+        {/* Tool cards — sticky deck that stacks + tilts on scroll */}
+        <ToolStack />
 
         {/* Bottom spacing */}
         <div className="pb-16 md:pb-24" />

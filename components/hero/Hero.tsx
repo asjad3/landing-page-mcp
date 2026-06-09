@@ -27,10 +27,10 @@ export function Hero() {
             alt="ImagineMCP"
             width={263}
             height={49}
-            className="mb-6"
+            className="mb-6 w-[188px] sm:w-[263px] h-auto"
           />
           <h1
-            className="font-display font-medium capitalize leading-[1.04] tracking-[-1.5px] m-0 mb-[22px] text-content-primary"
+            className="font-display font-medium leading-[1.04] tracking-[-1.5px] m-0 mb-[22px] text-content-primary"
             style={{ fontSize: "clamp(36px, 4.8vw, 60px)" }}
           >
             Make a creative powerhouse with
@@ -40,7 +40,7 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="font-sans text-[18px] font-normal leading-[1.7] text-[#0F0F0F] m-0 mb-8 max-w-[56ch] tracking-[-0.005em]">
+          <p className="font-sans text-[15px] sm:text-[18px] font-normal leading-[1.7] text-[#0F0F0F] m-0 mb-8 max-w-[56ch] tracking-[-0.005em]">
             An MCP server for ImagineArt. Six creative endpoints for Claude,
             Cursor, and any client that speaks the Model Context Protocol.
           </p>
