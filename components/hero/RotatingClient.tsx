@@ -72,7 +72,7 @@ export function RotatingClient({
       <span
         ref={measureRef}
         aria-hidden="true"
-        className="absolute opacity-0 pointer-events-none -z-50 inline-flex"
+        className="absolute top-0 left-0 opacity-0 pointer-events-none -z-50 flex flex-col items-start"
       >
         {items.map((it, i) => (
           <span
